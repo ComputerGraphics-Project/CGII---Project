@@ -7,33 +7,36 @@ public class Stop
     public string id { get; }
     public Tuple<float, float> coordinates { get; }
     public int[] nbOfStopsPerHourStep { get; private set; }
-    public float[] frequencyIndicators { get; set; }
+    public float[] AWTs { get; private set; }
+
 
     public Stop(string id, Tuple<float, float> coordinates, int nbSteps) {
         this.id = id;
         this.coordinates = coordinates;
         this.nbOfStopsPerHourStep = new int[nbSteps];
-        this.frequencyIndicators = new float[nbSteps];
+        this.AWTs = new float[nbSteps];
     }
-    public Stop(string id, Tuple<float, float> coordinates, int[] nbOfStopsPerHourStep, float[] frequencyIndicators) {
+    public Stop(string id, Tuple<float, float> coordinates, int[] nbOfStopsPerHourStep) {
         this.id = id;
         this.coordinates = coordinates;
         this.nbOfStopsPerHourStep = nbOfStopsPerHourStep;
-        this.frequencyIndicators = frequencyIndicators;
+        this.AWTs = new float[nbOfStopsPerHourStep.Length];
     }
 
     public void IncreaseNbOfStops(int indexStep) {
         this.nbOfStopsPerHourStep[indexStep]++;
     }
 
-    public int GetMaxNumberOfStops() {
-        return this.nbOfStopsPerHourStep.Max();
-    }
-
-    public void SetFrequencyIndicator(int maxNbOfStops) {
-        for (int i=0; i<this.frequencyIndicators.Length; i++) {
-            this.frequencyIndicators[i] = Mathf.Min(1f, (float) this.nbOfStopsPerHourStep[i] / maxNbOfStops);
+    public void ComputeAWTs(float reliabilityFactor) {
+        int n = AWTs.Length;
+    
+        for (int i=0; i<n; i++) {
+            if (nbOfStopsPerHourStep[i] == 0) {
+                AWTs[i] = Mathf.Infinity;
+            } else {
+                float SWT = 720 / (nbOfStopsPerHourStep[i] * n);
+                AWTs[i] = SWT + reliabilityFactor;
+            }
         }
     }
-
 }

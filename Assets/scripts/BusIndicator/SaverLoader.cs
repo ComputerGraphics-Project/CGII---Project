@@ -33,6 +33,7 @@ public static class SaverLoader
     }
 }
 
+
 [Serializable]
 public class BusData
 {
@@ -41,7 +42,6 @@ public class BusData
     private float[] latitude;
     private float[] longitude;
     private int[][] nbOfStopsPerHourStep;
-    private float[][] frequencyIndicators;
 
 
     public BusData(List<Stop> stops, int hourStep)
@@ -52,7 +52,6 @@ public class BusData
         this.latitude = new float[n];
         this.longitude = new float[n];
         this.nbOfStopsPerHourStep = new int[n][];
-        this.frequencyIndicators = new float[n][];
 
         for (int i=0; i<n; i++) {
             id[i] = stops[i].id;
@@ -61,10 +60,8 @@ public class BusData
 
             int m = stops[i].nbOfStopsPerHourStep.Length;
             this.nbOfStopsPerHourStep[i] = new int[m];
-            this.frequencyIndicators[i] = new float[m];
             for (int j=0; j<m; j++) {
                 this.nbOfStopsPerHourStep[i][j] = stops[i].nbOfStopsPerHourStep[j];
-                this.frequencyIndicators[i][j] = stops[i].frequencyIndicators[j];
             }
         }
     }
@@ -74,7 +71,7 @@ public class BusData
 
         int n = id.Length;
         for (int i=0; i<n; i++) {
-            stops.Add(new Stop(id[i], new Tuple<float, float>(latitude[i], longitude[i]), nbOfStopsPerHourStep[i], frequencyIndicators[i]));
+            stops.Add(new Stop(id[i], new Tuple<float, float>(latitude[i], longitude[i]), nbOfStopsPerHourStep[i]));
         }
 
         return stops;

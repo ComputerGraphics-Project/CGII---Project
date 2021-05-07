@@ -10,13 +10,12 @@ using Mapbox.Unity.MeshGeneration.Modifiers;
 public class BusServiceAvailability: MonoBehaviour
 {
     [SerializeField] private int hourStep = 2;
-	[SerializeField] private float frequencyWeight = 0.5f;
-	[SerializeField] private float distanceWeight = 0.5f;
 
-    [Tooltip("Distance from which the distance indicator will be equal to 0 (in meters).")]
-	[SerializeField] private int maxDistance = 555;
-    [Tooltip("Duration from which the frequency indicator will be equal to 0 (in minutes).")]
-	[SerializeField] private int maxWaitingTime = 30;
+    [Tooltip("Distance from which we do not consider a bus stop (in meters).")]
+    [SerializeField] private float maxDistance = 640f;
+
+    [Tooltip("Reflects the fact that actual wait times can be longer because services do not arrive in an entirely regular manner (in minutes).")]
+    [SerializeField] private float reliabilityFactor = 2f;
 
     private List<Stop> stops;
     private int currentStep;
@@ -32,13 +31,30 @@ public class BusServiceAvailability: MonoBehaviour
         buildingLayer = GameObject.Find("Map").GetComponent<AbstractMap>().VectorData.GetFeatureSubLayerAtIndex(0);
     }
 
-    public float[] GetIndicator(float lat, float lon) {
-        SetFrequencyIndicator();
+    public float[] GetPTAL(float lat, float lon) {
+        
+        Point point = new Point(new Tuple<float, float>(lat, lon), stops, maxDistance);
 
-        Point point = new Point(new Tuple<float, float>(lat, lon), this.stops, 24/hourStep, maxDistance);
-        point.ComputeGlobalIndicator(frequencyWeight, distanceWeight);
+        point.ComputeAWTs(this.reliabilityFactor);
+        point.ComputeEDFs();
+        float[] accessIndexes = point.GetAccessIndex();
 
-        return point.globalIndicator;
+        int numberOfIndexes = accessIndexes.Length;
+        float[] PTAL = new float[numberOfIndexes];
+
+        if (accessIndexes == null) {
+            return PTAL;
+        }
+
+        for (int i=0; i<accessIndexes.Length; i++) {
+            if (accessIndexes[i] > 40) {
+                PTAL[i] = 1;
+            } else {
+                PTAL[i] = accessIndexes[i] / 40;
+            }   
+        }
+
+        return PTAL;
     }
 
     public int GetHourStep() {
@@ -126,13 +142,6 @@ public class BusServiceAvailability: MonoBehaviour
                     break;
                 }
             }
-        }
-    }
-    private void SetFrequencyIndicator() {
-        int maxNbOfStops = hourStep * 60 / maxWaitingTime;
-
-        foreach (Stop stop in this.stops) {
-            stop.SetFrequencyIndicator(maxNbOfStops);
         }
     }
 
