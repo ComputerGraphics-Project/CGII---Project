@@ -166,7 +166,7 @@ public class DummySun : MonoBehaviour
                 }
                 linesToWrite.Add(line.ToString());
             }
-            System.IO.File.WriteAllLines(Application.dataPath + "/data.json", linesToWrite.ToArray());
+            System.IO.File.WriteAllLines(Application.persistentDataPath + "/data.json", linesToWrite.ToArray());
         }
     }
 
@@ -192,7 +192,7 @@ public class DummySun : MonoBehaviour
             }
         }
         //load
-        string path = Application.dataPath + "/data.json";
+        string path = Application.persistentDataPath + "/data.json";
         string fileData = System.IO.File.ReadAllText(path);
         string[] lines = fileData.Split("\n"[0]);
         int size = int.Parse(lines[0]);
