@@ -19,8 +19,8 @@ public class SkyExposure : MonoBehaviour
     public Color X1 { get; private set; }
     public Color X2 { get; private set; }
 
-    int width = 30, height = 30;
-    int times = 1, reftime = 10;
+    int width = 200, height = 200;
+    int times = 5, reftime = 10;
     int ratio;
     //static float step = 0.1f;//1
     //int stepNum = 2;// Math.Floor(1/step);//1
@@ -36,10 +36,10 @@ public class SkyExposure : MonoBehaviour
 
     private void InitPos()
     {
-        X1 = Color.cyan;
-        X2 = Color.red;
+        X1 = Color.clear;
+        X2 = Color.clear;
 
-        GameObject ma = GameObject.Find("16/19294/24641");
+        GameObject ma = GameObject.Find("16/33887/18096");
         Vector3 center = ma.transform.localPosition;//.GetComponent<MeshFilter>().mesh.bounds.center; // width = height = 30
 
         TexturePlane.transform.localPosition = center + new Vector3(width * reftime + 10, 0, 0);// - new Vector3(times, 0, times);
@@ -69,7 +69,7 @@ public class SkyExposure : MonoBehaviour
             //new Vector3(-38, 9, -10)
             if (Physics.Raycast(posArray[i], direct,  out casthit, 200))//1 << 6))
             {
-                Debug.DrawRay(posArray[i], direct * 1000, Color.clear);
+                //Debug.DrawRay(posArray[i], direct * 1000, Color.clear);
                 posArray[i] = casthit.point;
             }
             RayCastNew(posArray[i]);
@@ -214,8 +214,8 @@ public class SkyExposure : MonoBehaviour
 
     void Update  ()
     {
-        Vector3 test = new Vector3(0, 90, 0);
-        RayCastNew(test);
+        //Vector3 test = new Vector3(0, 90, 0);
+        //RayCastNew(test);
         Exposure = (((float)countRay - (float)count) / (float)countRay) * 100; // Write an equation for calculating the number of rays casts.
         //setText();
         Exposure_text = Exposure;
