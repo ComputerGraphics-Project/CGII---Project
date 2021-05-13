@@ -107,11 +107,30 @@ public class SkyExposure : MonoBehaviour
     {
         countRay = 0;
         RaycastHit hit;
-        for (int i = 1; i < Width*2 ; i += 1)
+        //for (int i = 1; i < Width*2 ; i += 1)
+        //{
+        //    for (int j = 1; j < Length*2; j += 1)
+        //    {
+        //        Vector3 Direction = new Vector3((-Width *2 ) + (2*i), 8 , (-Length *2) + (2*j));
+        //        Debug.DrawRay(pos, Direction * 5, X1);
+        //        countRay += 1;
+
+        //        if (Physics.Raycast(pos, Direction, out hit, 45f))
+        //        {
+        //            Debug.DrawRay(pos, Direction * 5, X2);
+        //            count += 1;
+        //        }
+        //    }
+        //}
+        float plane_width = 38f;
+        float plane_height = 16f;
+        float step_i = plane_width / (Width * 2);
+        float step_j = plane_height / (Length * 2);
+        for (int i = 0; i < Width * 2; i = Mathf.RoundToInt(i + step_i))
         {
-            for (int j = 1; j < Length*2; j += 1)
+            for (int j = 0; j < Length * 2; j = Mathf.RoundToInt(j + step_j))
             {
-                Vector3 Direction = new Vector3((-Width *2 ) + (2*i), 8 , (-Length *2) + (2*j));
+                Vector3 Direction = new Vector3((-plane_width) + i + step_i / 2, 8, (-plane_height) + j + step_j / 2);
                 Debug.DrawRay(pos, Direction * 5, X1);
                 countRay += 1;
 
@@ -190,8 +209,8 @@ public class SkyExposure : MonoBehaviour
 
     void Update  ()
     {
-        //Vector3 test = new Vector3(0, 90, 0);
-       // RayCastNew(test);
+        Vector3 test = new Vector3(0, 90, 0);
+        RayCastNew(test);
         Exposure = (((float)countRay - (float)count) / (float)countRay) * 100; // Write an equation for calculating the number of rays casts.
         //setText();
         Exposure_text = Exposure;
