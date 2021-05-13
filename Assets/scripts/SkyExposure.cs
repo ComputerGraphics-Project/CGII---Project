@@ -20,7 +20,7 @@ public class SkyExposure : MonoBehaviour
     public Color X2 { get; private set; }
 
     int width = 30, height = 30;
-    int times = 5, reftime = 10;
+    int times = 1, reftime = 10;
     int ratio;
     //static float step = 0.1f;//1
     //int stepNum = 2;// Math.Floor(1/step);//1
@@ -107,11 +107,35 @@ public class SkyExposure : MonoBehaviour
     {
         countRay = 0;
         RaycastHit hit;
-        //for (int i = 1; i < Width*2 ; i += 1)
+        float ray_length = 10f;
+        float error_tolorance = 1e-4f;
+        float plane_w_angle = 120f * Mathf.PI / 180f; // 120 degree for width
+        float plane_l_angle = 90f * Mathf.PI / 180f; // 90 degree for width
+        float step_i = plane_w_angle / Width; // Width = 2, step_i = 60
+        float step_j = plane_l_angle / Length;// Length = 2, step_j = 45
+        float offset_w = -Mathf.PI / 2 + (Mathf.PI - plane_w_angle) / 2 + step_i / 2;//-90+30+30=-30
+        float offset_l = -Mathf.PI / 2 + (Mathf.PI - plane_l_angle) / 2 + step_j / 2;//-90+45+22.5=-22.5
+        for (float i = 0; i < plane_w_angle - error_tolorance; i = i + step_i)
+        {
+            for (float j = 0; j < plane_l_angle - error_tolorance; j = j + step_j)
+            {
+                Vector3 Direction = new Vector3(Mathf.Tan(i + offset_w), 1, Mathf.Tan(j + offset_l));
+                Debug.DrawRay(pos, Direction* ray_length, X1);
+                countRay += 1;
+
+                if (Physics.Raycast(pos, Direction, out hit, 45f))
+                {
+                    Debug.DrawRay(pos, Direction  * ray_length, X2);
+                    count += 1;
+                }
+            }
+        }
+        /// previous code version
+        //for (int i = 1; i < Width * 2; i += 1)
         //{
-        //    for (int j = 1; j < Length*2; j += 1)
+        //    for (int j = 1; j < Length * 2; j += 1)
         //    {
-        //        Vector3 Direction = new Vector3((-Width *2 ) + (2*i), 8 , (-Length *2) + (2*j));
+        //        Vector3 Direction = new Vector3((-Width * 2) + (2 * i), 8, (-Length * 2) + (2 * j));
         //        Debug.DrawRay(pos, Direction * 5, X1);
         //        countRay += 1;
 
@@ -122,25 +146,6 @@ public class SkyExposure : MonoBehaviour
         //        }
         //    }
         //}
-        float plane_width = 38f;
-        float plane_height = 16f;
-        float step_i = plane_width / (Width * 2);
-        float step_j = plane_height / (Length * 2);
-        for (int i = 0; i < Width * 2; i = Mathf.RoundToInt(i + step_i))
-        {
-            for (int j = 0; j < Length * 2; j = Mathf.RoundToInt(j + step_j))
-            {
-                Vector3 Direction = new Vector3((-plane_width) + i + step_i / 2, 8, (-plane_height) + j + step_j / 2);
-                Debug.DrawRay(pos, Direction * 5, X1);
-                countRay += 1;
-
-                if (Physics.Raycast(pos, Direction, out hit, 45f))
-                {
-                    Debug.DrawRay(pos, Direction * 5, X2);
-                    count += 1;
-                }
-            }
-        }
     }
 
 
