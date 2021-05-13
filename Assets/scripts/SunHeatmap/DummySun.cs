@@ -192,6 +192,7 @@ public class DummySun : MonoBehaviour
             }
         }
         //load
+	//check if the path exists?????????
         string path = Application.persistentDataPath + "/data.json";
         string fileData = System.IO.File.ReadAllText(path);
         string[] lines = fileData.Split("\n"[0]);
