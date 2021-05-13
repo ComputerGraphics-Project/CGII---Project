@@ -8,6 +8,8 @@ public class SkyExposure : MonoBehaviour
     public int Width;
     public int Length;
     public GameObject TexturePlane;
+    public GameObject CubeMap;
+    public GameObject Cube;
     int count;
     int countRay;
     float Exposure;
@@ -19,7 +21,8 @@ public class SkyExposure : MonoBehaviour
     public Color X1 { get; private set; }
     public Color X2 { get; private set; }
 
-    int width = 200, height = 200;
+    Vector3 center;
+    int width = 210, height = 210;
     int times = 5, reftime = 10;
     int ratio;
     //static float step = 0.1f;//1
@@ -27,11 +30,46 @@ public class SkyExposure : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Helloooooo");
         ratio = Mathf.RoundToInt(reftime / times);
         TexturePlane.transform.localScale = new Vector3(width, 1, height);
         posArray = new Vector3[width*ratio * height*ratio];//width * stepNum * height * stepNum
         percentArray = new float[posArray.Length];
         InitPos();
+    }
+
+    private void mouseLocation()
+    {
+        Ray ray;
+        RaycastHit hit;
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        int layerMask = 1 << 8;
+        if (Physics.Raycast(ray, out hit , layerMask))
+        {
+
+            var Position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+            
+            var relative_Pos = Position - center + new Vector3(width * reftime / 2f, 0, height * reftime / 2f);
+            int i = Mathf.RoundToInt(relative_Pos.x / times);
+            int j = Mathf.RoundToInt(relative_Pos.z / times);
+            float v1 = percentArray[i * height * ratio + j];
+            float v2 = percentArray[(i + 1) * height * ratio + j];
+            float v3 = percentArray[i * height * ratio + j + 1];
+            float v4 = percentArray[(i + 1) * height * ratio + j + 1];
+
+            //Debug.Log("Position " + Position +
+            //    ",i=" + (i).ToString() + 
+            //    ",j=" + (j).ToString() +
+            //    ",p1=" + posArray[i * height * ratio + j].ToString()  +
+            //    ",p4=" + posArray[(i + 1) * height * ratio + j + 1].ToString() +
+            //    ",v1(" + (i * height * ratio).ToString() + ")=" + v1.ToString() +
+            //    ",v2(" + ((i + 1) * height * ratio + j).ToString() + ")=" + v2.ToString() +
+            //    ",v3(" + (i * height * ratio + j + 1).ToString() + ")=" + v3.ToString() +
+            //    ",v4(" + ((i + 1) * height * ratio + j + 1).ToString() + ")=" + v4.ToString());
+            Cube.transform.position = Position + new Vector3(width * reftime + 10, 0, 0);
+            CubeMap.transform.position = Position;
+            Debug.Log("Position " + Position + ",sky_percents=" + ((v1 + v2 + v3 + v4) / 4).ToString());
+        }
     }
 
     private void InitPos()
@@ -40,7 +78,7 @@ public class SkyExposure : MonoBehaviour
         X2 = Color.clear;
 
         GameObject ma = GameObject.Find("16/33887/18096");
-        Vector3 center = ma.transform.localPosition;//.GetComponent<MeshFilter>().mesh.bounds.center; // width = height = 30
+        center = ma.transform.localPosition;//.GetComponent<MeshFilter>().mesh.bounds.center; // width = height = 30
 
         TexturePlane.transform.localPosition = center + new Vector3(width * reftime + 10, 0, 0);// - new Vector3(times, 0, times);
 
@@ -50,7 +88,7 @@ public class SkyExposure : MonoBehaviour
             for (int j = 0; j < height* ratio; j++)
             {
                 posArray[i * height*ratio + j] = center + new Vector3(i * times, 0, j * times) - new Vector3(width * reftime / 2f, 0, height * reftime / 2f);// - new Vector3(times, 0, times);
-                //posArray[i] = new Vector3(i * 10, 100, 0);
+               
             }
         }
     }
@@ -214,6 +252,8 @@ public class SkyExposure : MonoBehaviour
 
     void Update  ()
     {
+
+        mouseLocation();
         //Vector3 test = new Vector3(0, 90, 0);
         //RayCastNew(test);
         Exposure = (((float)countRay - (float)count) / (float)countRay) * 100; // Write an equation for calculating the number of rays casts.
