@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4120,7 +4120,6 @@ MonoBehaviour:
   TMP_IF: {fileID: 1173072392}
   SimParamOKButton: {fileID: 1401028455}
   SimParamCancelButton: {fileID: 1445123301}
-  heatmapSize: 0
 --- !u!4 &872329826
 Transform:
   m_ObjectHideFlags: 0
@@ -7698,7 +7697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointObj: {fileID: 6782640681751507897, guid: 736f00e4e3eb03d4ea1901d5dc611e24,
     type: 3}
-  UI: {fileID: 872329824}
+  UIobj: {fileID: 872329824}
   objPos: {x: 0, y: 0, z: 0}
   HeatmapSteps: 10
 --- !u!1 &1586590042
@@ -8998,7 +8997,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001912278}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ae7018423ddd4e2dbb95a4fe0aea46d, type: 3}
   m_Name: 
