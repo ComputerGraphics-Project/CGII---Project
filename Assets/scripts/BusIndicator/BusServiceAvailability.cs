@@ -28,7 +28,7 @@ public class BusServiceAvailability: MonoBehaviour
 
         currentStep = 0;
         busModifier = ScriptableObject.CreateInstance<BusIndicatorModifier>();
-        buildingLayer = GameObject.Find("CitySimulatorMap").GetComponent<AbstractMap>().VectorData.GetFeatureSubLayerAtIndex(0);
+        buildingLayer = GameObject.Find("Map").GetComponent<AbstractMap>().VectorData.GetFeatureSubLayerAtIndex(0);
     }
 
     public float[] GetPTAL(float lat, float lon) {
@@ -87,7 +87,7 @@ public class BusServiceAvailability: MonoBehaviour
         } else {
             this.stops = busData.GetStops();
         }
-        GameObject.Find("Prefab_UI_BusIndicator").GetComponent<BusUIManager>().ActivateBusIndicator();
+        GameObject.Find("UIBusIndicator").GetComponent<BusUIManager>().ActivateBusIndicator();
     }
 
     private void SetStopsFromFile() {
