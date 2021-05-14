@@ -1,6 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
 --- !u!1 &281153227586396579
+=======
+--- !u!1 &9054726982920789474
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,21 +12,34 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   - component: {fileID: 56646136215321034}
   - component: {fileID: 7965220534694998356}
   m_Layer: 0
   m_Name: Text Area
+=======
+  - component: {fileID: 9054726982920789475}
+  - component: {fileID: 9054726982920789473}
+  - component: {fileID: 9054726982920789472}
+  m_Layer: 5
+  m_Name: Label
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
 --- !u!224 &56646136215321034
+=======
+--- !u!224 &9054726982920789475
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 281153227586396579}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -39,11 +56,36 @@ RectTransform:
   m_SizeDelta: {x: -20, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7965220534694998356
+=======
+  m_GameObject: {fileID: 9054726982920789474}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9054726983174687820}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 50, y: 0}
+  m_SizeDelta: {x: 98.0129, y: 23.7944}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &9054726982920789473
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9054726982920789474}
+  m_CullTransparentMesh: 1
+--- !u!114 &9054726982920789472
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 281153227586396579}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -53,6 +95,92 @@ MonoBehaviour:
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
 --- !u!1 &522077973349808834
+=======
+  m_GameObject: {fileID: 9054726982920789474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Enable
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &9054726983116919445
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,6 +188,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   - component: {fileID: 9074100615459851107}
   m_Layer: 0
   m_Name: ReliabilityFactor
@@ -97,17 +226,29 @@ GameObject:
   - component: {fileID: 1739145613318607980}
   m_Layer: 5
   m_Name: Label
+=======
+  - component: {fileID: 9054726983116919450}
+  - component: {fileID: 9054726983116919448}
+  - component: {fileID: 9054726983116919451}
+  m_Layer: 5
+  m_Name: Title
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
 --- !u!224 &8978225632745681924
+=======
+--- !u!224 &9054726983116919450
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 798016646446308372}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 43.171017}
@@ -122,20 +263,46 @@ RectTransform:
   m_SizeDelta: {x: 78.359, y: 17.177}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7089599956730414781
+=======
+  m_GameObject: {fileID: 9054726983116919445}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9054726984183215324}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -25}
+  m_SizeDelta: {x: 220.6726, y: 41.514603}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &9054726983116919448
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 798016646446308372}
   m_CullTransparentMesh: 1
 --- !u!114 &1739145613318607980
+=======
+  m_GameObject: {fileID: 9054726983116919445}
+  m_CullTransparentMesh: 1
+--- !u!114 &9054726983116919451
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 798016646446308372}
+=======
+  m_GameObject: {fileID: 9054726983116919445}
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -149,7 +316,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_text: Max distance
+=======
+  m_text: 'Bus Indicator
+
+'
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -176,8 +349,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_fontSize: 12
   m_fontSizeBase: 12
+=======
+  m_fontSize: 30
+  m_fontSizeBase: 30
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -218,7 +396,11 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
 --- !u!1 &876832293108956406
+=======
+--- !u!1 &9054726983174687823
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,22 +408,34 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   - component: {fileID: 3657344219990034721}
   - component: {fileID: 1781476510027526815}
   - component: {fileID: 4784364511292850112}
   m_Layer: 5
   m_Name: Background
+=======
+  - component: {fileID: 9054726983174687820}
+  - component: {fileID: 9054726983174687821}
+  m_Layer: 5
+  m_Name: EnableToggle
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
 --- !u!224 &3657344219990034721
+=======
+--- !u!224 &9054726983174687820
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 876832293108956406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -265,17 +459,40 @@ CanvasRenderer:
   m_GameObject: {fileID: 876832293108956406}
   m_CullTransparentMesh: 1
 --- !u!114 &4784364511292850112
+=======
+  m_GameObject: {fileID: 9054726983174687823}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9054726984695754190}
+  - {fileID: 9054726982920789475}
+  m_Father: {fileID: 9054726984183215324}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -4.5, y: -5.5}
+  m_SizeDelta: {x: 261.07, y: 23.301}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9054726983174687821
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 876832293108956406}
+=======
+  m_GameObject: {fileID: 9054726983174687823}
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -2191,6 +2408,45 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5661739680937524557
+=======
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 9054726984695754191}
+  toggleTransition: 1
+  graphic: {fileID: 9054726984601836168}
+  m_Group: {fileID: 0}
+  onValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_IsOn: 0
+--- !u!1 &9054726983930320411
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2198,7 +2454,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   - component: {fileID: 3609334560484167986}
+=======
+  - component: {fileID: 9054726983930320408}
+  - component: {fileID: 9054726983930320414}
+  - component: {fileID: 9054726983930320409}
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
@@ -2206,12 +2468,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
 --- !u!224 &3609334560484167986
+=======
+--- !u!224 &9054726983930320408
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 5661739680937524557}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -2249,6 +2516,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6588145788176858482}
+=======
+  m_GameObject: {fileID: 9054726983930320411}
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 338.7, y: -119.44768, z: -27.762716}
   m_LocalScale: {x: 1.0899779, y: 3.2154343, z: 0.6430869}
@@ -2287,29 +2557,48 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_Father: {fileID: 2223746963463763127}
   m_RootOrder: 1
+=======
+  m_Father: {fileID: 9054726984572255237}
+  m_RootOrder: 0
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
 --- !u!222 &4865677694306163443
+=======
+--- !u!222 &9054726983930320414
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 6630579608105968340}
   m_CullTransparentMesh: 1
 --- !u!114 &451103325634005552
+=======
+  m_GameObject: {fileID: 9054726983930320411}
+  m_CullTransparentMesh: 1
+--- !u!114 &9054726983930320409
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 6630579608105968340}
+=======
+  m_GameObject: {fileID: 9054726983930320411}
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -2323,6 +2612,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_text: "\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2393,6 +2683,19 @@ MonoBehaviour:
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &6726199712920950089
+=======
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &9054726984056853240
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2400,22 +2703,34 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   - component: {fileID: 4457062384386553872}
   - component: {fileID: 6648055429634093932}
   - component: {fileID: 5950584348534589333}
   m_Layer: 5
   m_Name: Title
+=======
+  - component: {fileID: 9054726984056853241}
+  - component: {fileID: 9054726984056853246}
+  m_Layer: 5
+  m_Name: TimeSlider
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
 --- !u!224 &4457062384386553872
+=======
+--- !u!224 &9054726984056853241
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 6726199712920950089}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -2438,25 +2753,83 @@ CanvasRenderer:
   m_GameObject: {fileID: 6726199712920950089}
   m_CullTransparentMesh: 1
 --- !u!114 &5950584348534589333
+=======
+  m_GameObject: {fileID: 9054726984056853240}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9054726984427497580}
+  - {fileID: 9054726984865399165}
+  - {fileID: 9054726984572255237}
+  m_Father: {fileID: 9054726984183215324}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 52.1, y: 22}
+  m_SizeDelta: {x: 160, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9054726984056853246
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 6726199712920950089}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+=======
+  m_GameObject: {fileID: 9054726984056853240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 9054726983930320409}
+  m_FillRect: {fileID: 9054726984555904619}
+  m_HandleRect: {fileID: 9054726983930320408}
+  m_Direction: 0
+  m_MinValue: 0
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 0
+  m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_text: Simulation parameters
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2613,6 +2986,9 @@ MonoBehaviour:
       m_Calls: []
   m_IsOn: 0
 --- !u!1 &7387205922579484630
+=======
+--- !u!1 &9054726984183215327
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2620,22 +2996,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   - component: {fileID: 6306557595804466498}
   - component: {fileID: 447400907916881518}
   - component: {fileID: 2327976044569384390}
   m_Layer: 0
   m_Name: Text
+=======
+  - component: {fileID: 9054726984183215324}
+  - component: {fileID: 9054726984183215138}
+  - component: {fileID: 9054726984183215325}
+  - component: {fileID: 9054726984183215139}
+  m_Layer: 5
+  m_Name: UIBusIndicator
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
 --- !u!224 &6306557595804466498
+=======
+--- !u!224 &9054726984183215324
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 7387205922579484630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -2784,27 +3174,61 @@ RectTransform:
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &732473812936823901
+=======
+  m_GameObject: {fileID: 9054726984183215327}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9054726983116919450}
+  - {fileID: 9054726983174687820}
+  - {fileID: 9054726984385433237}
+  - {fileID: 9054726984056853241}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -151.2, y: 68}
+  m_SizeDelta: {x: 281.5496, y: 115.4938}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &9054726984183215138
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 7593004846652711878}
   m_CullTransparentMesh: 1
 --- !u!114 &8623005907125057495
+=======
+  m_GameObject: {fileID: 9054726984183215327}
+  m_CullTransparentMesh: 1
+--- !u!114 &9054726984183215325
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 7593004846652711878}
+=======
+  m_GameObject: {fileID: 9054726984183215327}
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+=======
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2821,6 +3245,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
 --- !u!1 &7676492702807599525
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,15 +3266,57 @@ GameObject:
   m_IsActive: 1
 --- !u!224 &6044296295202399532
 RectTransform:
+=======
+--- !u!114 &9054726984183215139
+MonoBehaviour:
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 7676492702807599525}
+=======
+  m_GameObject: {fileID: 9054726984183215327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9078aabf933979a090379a4198a4c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  busToggle: {fileID: 9054726983174687821}
+  busTimeSlider: {fileID: 9054726984056853246}
+  busTimeLabel: {fileID: 9054726984385433242}
+--- !u!1 &9054726984385433236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9054726984385433237}
+  - component: {fileID: 9054726984385433243}
+  - component: {fileID: 9054726984385433242}
+  m_Layer: 5
+  m_Name: TimeLabel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &9054726984385433237
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9054726984385433236}
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_Father: {fileID: 3074440737517839858}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2859,20 +3326,41 @@ RectTransform:
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8184690521647851452
+=======
+  m_Father: {fileID: 9054726984183215324}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -82.7, y: 21.8}
+  m_SizeDelta: {x: 102.5678, y: 23.472}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &9054726984385433243
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 7676492702807599525}
   m_CullTransparentMesh: 1
 --- !u!114 &2150313401033958134
+=======
+  m_GameObject: {fileID: 9054726984385433236}
+  m_CullTransparentMesh: 1
+--- !u!114 &9054726984385433242
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 7676492702807599525}
+=======
+  m_GameObject: {fileID: 9054726984385433236}
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -2886,7 +3374,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_text: "\u200B"
+=======
+  m_text: 00:00 - 00:00
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2913,15 +3405,20 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
+=======
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2955,7 +3452,11 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
 --- !u!1 &8307953108543567783
+=======
+--- !u!1 &9054726984427497583
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2963,21 +3464,34 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   - component: {fileID: 3611571146156803830}
   - component: {fileID: 2478678794668517535}
   m_Layer: 5
   m_Name: Slider
+=======
+  - component: {fileID: 9054726984427497580}
+  - component: {fileID: 9054726984427497586}
+  - component: {fileID: 9054726984427497581}
+  m_Layer: 5
+  m_Name: Background
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
 --- !u!224 &3611571146156803830
+=======
+--- !u!224 &9054726984427497580
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 8307953108543567783}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 43.171017}
@@ -2995,11 +3509,36 @@ RectTransform:
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2478678794668517535
+=======
+  m_GameObject: {fileID: 9054726984427497583}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9054726984056853241}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.25}
+  m_AnchorMax: {x: 1, y: 0.75}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &9054726984427497586
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9054726984427497583}
+  m_CullTransparentMesh: 1
+--- !u!114 &9054726984427497581
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 8307953108543567783}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -3046,57 +3585,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &8352710846644023018
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4943075954615338056}
-  - component: {fileID: 108687012365287207}
-  - component: {fileID: 362391616639783085}
-  m_Layer: 5
-  m_Name: Checkmark
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &4943075954615338056
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8352710846644023018}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3657344219990034721}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &108687012365287207
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8352710846644023018}
-  m_CullTransparentMesh: 1
---- !u!114 &362391616639783085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8352710846644023018}
+=======
+  m_GameObject: {fileID: 9054726984427497583}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -3110,8 +3600,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3120,7 +3610,8 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &8506050612104103163
+--- !u!1 &9054726984555904618
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3128,14 +3619,143 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5835280750940067757}
-  m_Layer: 0
-  m_Name: Time
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
+  - component: {fileID: 4943075954615338056}
+  - component: {fileID: 108687012365287207}
+  - component: {fileID: 362391616639783085}
+  m_Layer: 5
+  m_Name: Checkmark
+=======
+  - component: {fileID: 9054726984555904619}
+  - component: {fileID: 9054726984555904617}
+  - component: {fileID: 9054726984555904616}
+  m_Layer: 5
+  m_Name: Fill
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
+--- !u!224 &4943075954615338056
+=======
+--- !u!224 &9054726984555904619
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
+  m_GameObject: {fileID: 8352710846644023018}
+=======
+  m_GameObject: {fileID: 9054726984555904618}
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
+  m_Father: {fileID: 3657344219990034721}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &108687012365287207
+=======
+  m_Father: {fileID: 9054726984865399165}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 10, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &9054726984555904617
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
+  m_GameObject: {fileID: 8352710846644023018}
+  m_CullTransparentMesh: 1
+--- !u!114 &362391616639783085
+=======
+  m_GameObject: {fileID: 9054726984555904618}
+  m_CullTransparentMesh: 1
+--- !u!114 &9054726984555904616
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
+  m_GameObject: {fileID: 8352710846644023018}
+=======
+  m_GameObject: {fileID: 9054726984555904618}
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
+  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 0
+=======
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
+--- !u!1 &8506050612104103163
+=======
+--- !u!1 &9054726984572255236
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
+  - component: {fileID: 5835280750940067757}
+  m_Layer: 0
+  m_Name: Time
+=======
+  - component: {fileID: 9054726984572255237}
+  m_Layer: 5
+  m_Name: Handle Slide Area
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
 --- !u!4 &5835280750940067757
 Transform:
   m_ObjectHideFlags: 0
@@ -3172,11 +3792,15 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &219090481373102616
+=======
+--- !u!224 &9054726984572255237
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 8511719447480269997}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 43.17102}
@@ -3192,19 +3816,80 @@ RectTransform:
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4638710380222231350
+=======
+  m_GameObject: {fileID: 9054726984572255236}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9054726983930320408}
+  m_Father: {fileID: 9054726984056853241}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &9054726984601836170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9054726984601836171}
+  - component: {fileID: 9054726984601836169}
+  - component: {fileID: 9054726984601836168}
+  m_Layer: 5
+  m_Name: Checkmark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &9054726984601836171
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9054726984601836170}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9054726984695754190}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &9054726984601836169
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 8511719447480269997}
   m_CullTransparentMesh: 1
 --- !u!114 &6676182241122087150
+=======
+  m_GameObject: {fileID: 9054726984601836170}
+  m_CullTransparentMesh: 1
+--- !u!114 &9054726984601836168
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 8511719447480269997}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -3328,6 +4013,33 @@ MonoBehaviour:
   m_LineLimit: 0
   m_InputValidator: {fileID: 0}
 --- !u!1 &8720619392270599905
+=======
+  m_GameObject: {fileID: 9054726984601836170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &9054726984695754185
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3335,21 +4047,34 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   - component: {fileID: 3074440737517839858}
   - component: {fileID: 2091532021683985157}
   m_Layer: 0
   m_Name: Text Area
+=======
+  - component: {fileID: 9054726984695754190}
+  - component: {fileID: 9054726984695754188}
+  - component: {fileID: 9054726984695754191}
+  m_Layer: 5
+  m_Name: Background
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
 --- !u!224 &3074440737517839858
+=======
+--- !u!224 &9054726984695754190
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 8720619392270599905}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -3367,10 +4092,29 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2091532021683985157
 MonoBehaviour:
+=======
+  m_GameObject: {fileID: 9054726984695754185}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9054726984601836171}
+  m_Father: {fileID: 9054726983174687820}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 117.7, y: -10}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &9054726984695754188
+CanvasRenderer:
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 8720619392270599905}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -3418,16 +4162,82 @@ RectTransform:
   m_SizeDelta: {x: -20, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1994662796967099129
+=======
+  m_GameObject: {fileID: 9054726984695754185}
+  m_CullTransparentMesh: 1
+--- !u!114 &9054726984695754191
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_GameObject: {fileID: 9018083981634173395}
+=======
+  m_GameObject: {fileID: 9054726984695754185}
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Prefabs/BusIndicator/Prefab_UI_BusIndicator.prefab
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
+=======
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &9054726984865399164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9054726984865399165}
+  m_Layer: 5
+  m_Name: Fill Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &9054726984865399165
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9054726984865399164}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9054726984555904619}
+  m_Father: {fileID: 9054726984056853241}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.25}
+  m_AnchorMax: {x: 1, y: 0.75}
+  m_AnchoredPosition: {x: -5, y: 0}
+  m_SizeDelta: {x: -20, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+>>>>>>> 4505a63f179fb2d80a70fe76d16cea7eefb177bf:Assets/Prefabs/UIBusIndicator.prefab

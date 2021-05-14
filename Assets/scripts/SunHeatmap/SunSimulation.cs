@@ -23,7 +23,9 @@ public class SunSimulation : MonoBehaviour
 
         axis = new Vector3(0f, Mathf.Sin(Mathf.PI / 3), Mathf.Cos(Mathf.PI / 3));
 
-        origin.y = -100;
+        origin.y = 0;
+
+        /* temp.y and origin.y:  spring : april : -1200 ,,, summer : july : -100 ,,, fall : october : -2500 ,,, winter : january : -4000 */
     }
 
     void Update()
