@@ -9,8 +9,8 @@ public static class SaverLoader
 {
     private const string FILENAME = "bus_stops";
 
-    public static void Save(List<Stop> stops, int hourStep) {
-        BusData data = new BusData(stops, hourStep);
+    public static void Save(List<Stop> stops, int hourStep, float maxDistance, float reliabilityFactor) {
+        BusData data = new BusData(stops, hourStep, maxDistance, reliabilityFactor);
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Path.Combine(Application.persistentDataPath, FILENAME + ".dat"));
         bf.Serialize(file, data);
@@ -38,15 +38,19 @@ public static class SaverLoader
 public class BusData
 {
     private int hourStep;
+    private float maxDistance;
+    private float reliabilityFactor;
     private string[] id;
     private float[] latitude;
     private float[] longitude;
     private int[][] nbOfStopsPerHourStep;
 
 
-    public BusData(List<Stop> stops, int hourStep)
+    public BusData(List<Stop> stops, int hourStep, float maxDistance, float reliabilityFactor)
     {
         this.hourStep = hourStep;
+        this.maxDistance = maxDistance;
+        this.reliabilityFactor = reliabilityFactor;
         int n = stops.Count;
         this.id = new string[n];
         this.latitude = new float[n];
@@ -78,5 +82,11 @@ public class BusData
     }
     public int GetHourStep() {
         return hourStep;
+    }
+    public float GetMaxDistance() {
+        return maxDistance;
+    }
+    public float GetReliabilityFactor() {
+        return reliabilityFactor;
     }
 }

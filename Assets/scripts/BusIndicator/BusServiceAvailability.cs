@@ -9,13 +9,13 @@ using Mapbox.Unity.MeshGeneration.Modifiers;
 
 public class BusServiceAvailability: MonoBehaviour
 {
-    [SerializeField] private int hourStep = 2;
+    public int hourStep = 2;
 
     [Tooltip("Distance from which we do not consider a bus stop (in meters).")]
-    [SerializeField] private float maxDistance = 640f;
+    public float maxDistance = 640f;
 
     [Tooltip("Reflects the fact that actual wait times can be longer because services do not arrive in an entirely regular manner (in minutes).")]
-    [SerializeField] private float reliabilityFactor = 2f;
+    public float reliabilityFactor = 2f;
 
     private List<Stop> stops;
     private int currentStep;
@@ -24,37 +24,40 @@ public class BusServiceAvailability: MonoBehaviour
 
 
     void Start() {
-        SetStops();
-
         currentStep = 0;
         busModifier = ScriptableObject.CreateInstance<BusIndicatorModifier>();
         buildingLayer = GameObject.Find("CitySimulatorMap").GetComponent<AbstractMap>().VectorData.GetFeatureSubLayerAtIndex(0);
     }
 
     public float[] GetPTAL(float lat, float lon) {
-        
         Point point = new Point(new Tuple<float, float>(lat, lon), stops, maxDistance);
 
         point.ComputeAWTs(this.reliabilityFactor);
         point.ComputeEDFs();
         float[] accessIndexes = point.GetAccessIndex();
 
-        int numberOfIndexes = accessIndexes.Length;
-        float[] PTAL = new float[numberOfIndexes];
+        int numberOfIndexes;
+        try {
+            numberOfIndexes = accessIndexes.Length;
+            float[] PTAL = new float[numberOfIndexes];
 
-        if (accessIndexes == null) {
+            if (accessIndexes == null) {
+                return PTAL;
+            }
+
+            for (int i=0; i<accessIndexes.Length; i++) {
+                if (accessIndexes[i] > 40) {
+                    PTAL[i] = 1;
+                } else {
+                    PTAL[i] = accessIndexes[i] / 40;
+                }   
+            }
+
             return PTAL;
+        } catch (NullReferenceException) {
+            return new float[0];
         }
-
-        for (int i=0; i<accessIndexes.Length; i++) {
-            if (accessIndexes[i] > 40) {
-                PTAL[i] = 1;
-            } else {
-                PTAL[i] = accessIndexes[i] / 40;
-            }   
-        }
-
-        return PTAL;
+        
     }
 
     public int GetHourStep() {
@@ -79,10 +82,10 @@ public class BusServiceAvailability: MonoBehaviour
         buildingLayer.BehaviorModifiers.RemoveGameObjectModifier(busModifier);
     }
 
-    private void SetStops() {
+    public void SetStops() {
         BusData busData = SaverLoader.Load();
 
-        if (busData == null || busData.GetHourStep() != this.hourStep) {
+        if (busData == null || busData.GetHourStep() != this.hourStep || busData.GetMaxDistance() != this.maxDistance || busData.GetReliabilityFactor() != this.reliabilityFactor) {
             SetStopsFromFile();
         } else {
             this.stops = busData.GetStops();
@@ -118,7 +121,7 @@ public class BusServiceAvailability: MonoBehaviour
         }
 
         SetNumberOfStops();
-        SaverLoader.Save(this.stops, this.hourStep);
+        SaverLoader.Save(this.stops, this.hourStep, this.maxDistance, this.reliabilityFactor);
     }
     private void SetNumberOfStops() {
         string text = loadFile("Assets/Resources/BusIndicator/stop_times.txt");

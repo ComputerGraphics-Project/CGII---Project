@@ -22,7 +22,11 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
 			for (int i = 0; i < min; i++)
 			{				
 				Material mat = new Material(Shader.Find("Specular"));
-				mat.color = probabilityToColor(indicators[busServiceAvailability.GetCurrentStep()]);
+				try {
+					mat.color = probabilityToColor(indicators[busServiceAvailability.GetCurrentStep()]);
+				} catch (IndexOutOfRangeException) {
+					mat.color = new Color(0.0f, 0.0f, 1f, 1f);
+				}
 				mats[i] = mat;
 			}
 			

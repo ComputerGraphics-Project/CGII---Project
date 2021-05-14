@@ -9,6 +9,9 @@ public class BusUIManager : MonoBehaviour
     [SerializeField] private Toggle busToggle;
     [SerializeField] private Slider busTimeSlider;
     [SerializeField] private TMP_Text busTimeLabel;
+    [SerializeField] private TMP_InputField hourStep;
+    [SerializeField] private TMP_InputField maxDistance;
+    [SerializeField] private TMP_InputField reliabilityFactor;
     private BusServiceAvailability busServiceAvailability;
 
     void Start() {
@@ -21,6 +24,14 @@ public class BusUIManager : MonoBehaviour
         busTimeSlider.wholeNumbers = true;
         busTimeSlider.onValueChanged.AddListener(delegate {OnBusTimeSliderChanged(); });
         busTimeSlider.interactable = false;
+
+        hourStep.text = (busServiceAvailability.hourStep).ToString();
+        maxDistance.text = (busServiceAvailability.maxDistance).ToString();
+        reliabilityFactor.text = (busServiceAvailability.reliabilityFactor).ToString();
+
+        hourStep.onValueChanged.AddListener(delegate {OnInputChanged(); });
+        maxDistance.onValueChanged.AddListener(delegate {OnInputChanged(); });
+        reliabilityFactor.onValueChanged.AddListener(delegate {OnInputChanged(); });
     }
 
     public void ActivateBusIndicator() {
@@ -30,6 +41,7 @@ public class BusUIManager : MonoBehaviour
     private void OnBusToggleChanged() {
         if (busToggle.isOn) {
             busTimeSlider.interactable = true;
+            busServiceAvailability.SetStops();
             OnBusTimeSliderChanged();
         } else {
             busTimeSlider.interactable = false;
@@ -50,5 +62,11 @@ public class BusUIManager : MonoBehaviour
         }
 
         busTimeLabel.text = firstHour + ":00 - " + secondHour + ":00";
+    }
+
+    private void OnInputChanged() {
+        busServiceAvailability.hourStep = int.Parse(hourStep.text);
+        busServiceAvailability.maxDistance = float.Parse(maxDistance.text);
+        busServiceAvailability.reliabilityFactor = float.Parse(reliabilityFactor.text);
     }
 }
