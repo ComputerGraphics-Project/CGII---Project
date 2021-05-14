@@ -5,8 +5,8 @@ using System;
 
 public class SkyExposure : MonoBehaviour
 {
-    public int Width;
-    public int Length;
+    private int Width;
+    private int Length;
     public GameObject TexturePlane;
     public GameObject CubeMap;
     public GameObject Cube;
@@ -16,8 +16,7 @@ public class SkyExposure : MonoBehaviour
     public static float Exposure_text;
     public Vector3[] posArray;
     public float[] percentArray;
-    //public Text Skytext;
-    private bool isClicked = false;
+
     public Color X1 { get; private set; }
     public Color X2 { get; private set; }
 
@@ -25,31 +24,36 @@ public class SkyExposure : MonoBehaviour
     int width = 210, height = 210;
     int times = 5, reftime = 10;
     int ratio;
+    public Text SkyPercentage;
+    public Slider ResolutionSlider;
+    public Text SliderValue;
+    //public GameObject TextureImge; //UI reference
+    //public GameObject CameraImage; //UI reference
     //static float step = 0.1f;//1
     //int stepNum = 2;// Math.Floor(1/step);//1
 
     void Start()
     {
+
         Debug.Log("Helloooooo");
         ratio = Mathf.RoundToInt(reftime / times);
         TexturePlane.transform.localScale = new Vector3(width, 1, height);
-        posArray = new Vector3[width*ratio * height*ratio];//width * stepNum * height * stepNum
+        posArray = new Vector3[width * ratio * height * ratio];//width * stepNum * height * stepNum
         percentArray = new float[posArray.Length];
         InitPos();
     }
 
     private void mouseLocation()
     {
+        Vector3 clickPosition = -Vector3.one;
         Ray ray;
         RaycastHit hit;
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        int layerMask = 1 << 8;
-        if (Physics.Raycast(ray, out hit , layerMask))
-        {
-
-            var Position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-            
-            var relative_Pos = Position - center + new Vector3(width * reftime / 2f, 0, height * reftime / 2f);
+        Plane plane = new Plane(Vector3.up, 0f);
+        float distanceToplane;
+        if (plane.Raycast(ray, out distanceToplane)) {
+            clickPosition = ray.GetPoint(distanceToplane);
+            var relative_Pos = clickPosition - center + new Vector3(width * reftime / 2f, 0, height * reftime / 2f);
             int i = Mathf.RoundToInt(relative_Pos.x / times);
             int j = Mathf.RoundToInt(relative_Pos.z / times);
             float v1 = percentArray[i * height * ratio + j];
@@ -66,9 +70,22 @@ public class SkyExposure : MonoBehaviour
             //    ",v2(" + ((i + 1) * height * ratio + j).ToString() + ")=" + v2.ToString() +
             //    ",v3(" + (i * height * ratio + j + 1).ToString() + ")=" + v3.ToString() +
             //    ",v4(" + ((i + 1) * height * ratio + j + 1).ToString() + ")=" + v4.ToString());
-            Cube.transform.position = Position + new Vector3(width * reftime + 10, 0, 0);
-            CubeMap.transform.position = Position;
-            Debug.Log("Position " + Position + ",sky_percents=" + ((v1 + v2 + v3 + v4) / 4).ToString());
+            Cube.transform.position = clickPosition + new Vector3(width * reftime + 10, 0, 0);
+            CubeMap.transform.position = clickPosition;
+            Exposure = ((v1 + v2 + v3 + v4) / 4);
+            Debug.Log("Position " + clickPosition + ",sky_percents=" + Exposure.ToString());
+            SkyPercentage.text = (Exposure.ToString("0.00") + "%");
+
+        }
+
+
+        int layerMask = 1 << 8;
+        if (Physics.Raycast(ray, out hit, layerMask))
+        {
+
+            var Position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+
+
         }
     }
 
@@ -83,29 +100,29 @@ public class SkyExposure : MonoBehaviour
         TexturePlane.transform.localPosition = center + new Vector3(width * reftime + 10, 0, 0);// - new Vector3(times, 0, times);
 
 
-        for (int i = 0; i < width*ratio; i++)
+        for (int i = 0; i < width * ratio; i++)
         {
-            for (int j = 0; j < height* ratio; j++)
+            for (int j = 0; j < height * ratio; j++)
             {
-                posArray[i * height*ratio + j] = center + new Vector3(i * times, 0, j * times) - new Vector3(width * reftime / 2f, 0, height * reftime / 2f);// - new Vector3(times, 0, times);
-               
+                posArray[i * height * ratio + j] = center + new Vector3(i * times, 0, j * times) - new Vector3(width * reftime / 2f, 0, height * reftime / 2f);// - new Vector3(times, 0, times);
+
             }
         }
     }
 
-    private void Cal_posiotion()
+    public void Cal_posiotion()
     {
         Debug.Log("Start" + DateTime.Now.ToString());
         InitPos();
         Debug.Log("InitPos" + DateTime.Now.ToString());
-        for (int i=0; i< posArray.Length; i++)
+        for (int i = 0; i < posArray.Length; i++)
         {
             count = 0;
             Exposure = 0;
             RaycastHit casthit;
             Vector3 direct = new Vector3(0, -1, 0);
             //new Vector3(-38, 9, -10)
-            if (Physics.Raycast(posArray[i], direct,  out casthit, 200))//1 << 6))
+            if (Physics.Raycast(posArray[i], direct, out casthit, 200))//1 << 6))
             {
                 //Debug.DrawRay(posArray[i], direct * 1000, Color.clear);
                 posArray[i] = casthit.point;
@@ -158,16 +175,17 @@ public class SkyExposure : MonoBehaviour
             for (float j = 0; j < plane_l_angle - error_tolorance; j = j + step_j)
             {
                 Vector3 Direction = new Vector3(Mathf.Tan(i + offset_w), 1, Mathf.Tan(j + offset_l));
-                Debug.DrawRay(pos, Direction* ray_length, X1);
+                Debug.DrawRay(pos, Direction * ray_length, X1);
                 countRay += 1;
 
                 if (Physics.Raycast(pos, Direction, out hit, 45f))
                 {
-                    Debug.DrawRay(pos, Direction  * ray_length, X2);
+                    Debug.DrawRay(pos, Direction * ray_length, X2);
                     count += 1;
                 }
             }
         }
+
         /// previous code version
         //for (int i = 1; i < Width * 2; i += 1)
         //{
@@ -196,72 +214,73 @@ public class SkyExposure : MonoBehaviour
         render.material.mainTexture.filterMode = FilterMode.Trilinear;
 
         //timer
-        for (int i = 0; i < width*ratio; i++)
+        for (int i = 0; i < width * ratio; i++)
         {
-            for (int j = 0; j < height*ratio; j++)
+            for (int j = 0; j < height * ratio; j++)
             {
-                int index = i * height*ratio + j;
+                int index = i * height * ratio + j;
                 Color color = new Color(percentArray[index] / 100, percentArray[index] / 100, percentArray[index] / 100);
                 //Debug.Log(index);
                 Color[] colors = new Color[100];
                 for (int k = 0; k < colors.Length; k++)
                     colors[k] = color;
-                texture.SetPixels((width*ratio -i - 1) * times, (height*ratio - j - 1) * times, times, times, colors);
+                texture.SetPixels((width * ratio - i - 1) * times, (height * ratio - j - 1) * times, times, times, colors);
             }
         }
+        //TextureImge.GetComponent<RawImage>().texture = texture;
         texture.Apply();
     }
 
-    void OnGUI()
+    //void OnGUI()
+    //{
+    //    GUI.backgroundColor = Color.magenta;
+    //    GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
+    //    myButtonStyle.fontSize = 25;
+    //    GUIStyle myButtonStyle1 = new GUIStyle(GUI.skin.button);
+    //    myButtonStyle1.fontSize = 15;
+    //    Rect myRect1 = new Rect(10, 350, 270, 40);
+    //    GUI.Box(myRect1, "Sky exposure: " + SkyExposure.Exposure_text.ToString("0.0") + "%", myButtonStyle);
+
+    //    if (GUI.Button(new Rect(280, 350, 40, 40), "Ray", myButtonStyle1))
+    //    {
+
+    //        if (isClicked)
+    //        {
+
+    //            isClicked = false;
+    //            X1 = Color.clear;
+    //            X2 = Color.clear;
+    //        }
+    //        else
+    //        {
+
+    //            isClicked = true;
+    //            X1 = Color.cyan;
+    //            X2 = Color.red;
+    //        }
+    //    }
+    //    if (GUI.Button(new Rect(340, 350, 40, 40), "Calculte", myButtonStyle1))
+    //    {
+
+    //        Cal_posiotion();
+    //    }
+    //}
+
+
+
+    void Update()
     {
-        GUI.backgroundColor = Color.magenta;
-        GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
-        myButtonStyle.fontSize = 25;
-        GUIStyle myButtonStyle1 = new GUIStyle(GUI.skin.button);
-        myButtonStyle1.fontSize = 15;
-        Rect myRect1 = new Rect(10, 350, 270, 40);
-        GUI.Box(myRect1, "Sky exposure: " + SkyExposure.Exposure_text.ToString("0.0") + "%", myButtonStyle);
-
-        if (GUI.Button(new Rect(280, 350, 40, 40), "Ray", myButtonStyle1))
-        {
-
-            if (isClicked)
-            {
-
-                isClicked = false;
-                X1 = Color.clear;
-                X2 = Color.clear;
-            }
-            else
-            {
-
-                isClicked = true;
-                X1 = Color.cyan;
-                X2 = Color.red;
-            }
-        }
-        if (GUI.Button(new Rect(340, 350, 40, 40), "Calculte", myButtonStyle1))
-        {
-            count = 0;
-            Exposure = 0;
-            Cal_posiotion();
-        }
-    }
-
-
-
-    void Update  ()
-    {
-
+        Width = Mathf.FloorToInt(ResolutionSlider.value);
+        Length = Mathf.FloorToInt(ResolutionSlider.value);
+        SliderValue.text = (ResolutionSlider.value.ToString("0"));
         mouseLocation();
         //Vector3 test = new Vector3(0, 90, 0);
         //RayCastNew(test);
-        Exposure = (((float)countRay - (float)count) / (float)countRay) * 100; // Write an equation for calculating the number of rays casts.
-        //setText();
-        Exposure_text = Exposure;
     }
-    /*void setText()
+
+    public void StopCalculation()
     {
-            Skytext.text = ("SkyExposure : " + Exposure.ToString("0.00") + "%");    
-    }*/
+        //TexturePlane.GetComponent<Renderer>().material.mainTexture = ;
+    }
+
  }

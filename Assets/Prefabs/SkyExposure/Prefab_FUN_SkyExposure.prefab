@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5084089711225364005}
   m_Layer: 0
-  m_Name: SkyExposure
+  m_Name: Prefab_FUN_SkyExposure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,16 +123,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6553544455894775943}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de51310a551618c46ab1125e5d57d9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Width: 4
-  Length: 4
   TexturePlane: {fileID: 8097444202786832146}
+  CubeMap: {fileID: 0}
+  Cube: {fileID: 0}
   posArray: []
   percentArray: []
+  SkyPercentage: {fileID: 0}
+  ResolutionSlider: {fileID: 0}
+  SliderValue: {fileID: 0}
+  TextureImge: {fileID: 0}
+  CameraImage: {fileID: 0}
 --- !u!1 &8097444202786832146
 GameObject:
   m_ObjectHideFlags: 0
