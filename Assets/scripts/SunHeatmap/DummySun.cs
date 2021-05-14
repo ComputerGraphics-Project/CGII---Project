@@ -53,7 +53,8 @@ public class DummySun : MonoBehaviour
             axis = new Vector3(0f, Mathf.Sin(Mathf.PI / 3), Mathf.Cos(Mathf.PI / 3));
             float angle1 = (360 / 24) * startTime;
             float angle2 = (360 / 24) * stopTime;
-            Vector3 rotOrigin = new Vector3(0, -100, 0);
+            Vector3 rotOrigin = new Vector3(0, 0, 0);
+            rotOrigin.y = -100;
             transform.RotateAround(rotOrigin, axis, angle1);
 
 
@@ -66,7 +67,7 @@ public class DummySun : MonoBehaviour
             pX = origin.x - (steps / 2);
             pZ = origin.z - (steps / 2);
 
-            for (int i = 0; i < (int)(angle2-angle1); i++)
+            for (int i = 0; i < (int)(Mathf.Abs(angle2-angle1)); i++)
             {
                 transform.RotateAround(origin, axis, 1);
                 HeatMap();
@@ -192,6 +193,7 @@ public class DummySun : MonoBehaviour
             }
         }
         //load
+	//check if the path exists?????????
         string path = Application.persistentDataPath + "/data.json";
         string fileData = System.IO.File.ReadAllText(path);
         string[] lines = fileData.Split("\n"[0]);
