@@ -9,24 +9,34 @@ using Mapbox.Unity.MeshGeneration.Modifiers;
 
 public class BusServiceAvailability: MonoBehaviour
 {
-    public int hourStep = 2;
+    public int hourStep;
 
     [Tooltip("Distance from which we do not consider a bus stop (in meters).")]
-    public float maxDistance = 640f;
+    public float maxDistance;
 
     [Tooltip("Reflects the fact that actual wait times can be longer because services do not arrive in an entirely regular manner (in minutes).")]
-    public float reliabilityFactor = 2f;
+    public float reliabilityFactor;
 
     private List<Stop> stops;
     private int currentStep;
     private GameObjectModifier busModifier;
     private VectorSubLayerProperties buildingLayer;
+    private BusUIManager busUIManager;
 
 
-    void Start() {
+    void Awake() {
         currentStep = 0;
         busModifier = ScriptableObject.CreateInstance<BusIndicatorModifier>();
         buildingLayer = GameObject.Find("Map").GetComponent<AbstractMap>().VectorData.GetFeatureSubLayerAtIndex(0);
+        busUIManager = GameObject.Find("BusIndicatorUI").GetComponent<BusUIManager>();
+    }
+
+    void OnEnable() {
+        busUIManager.OnOKButtonClicked();
+    }
+
+    void OnDisable() {
+        RemoveModifier();
     }
 
     public float[] GetPTAL(float lat, float lon) {
@@ -90,7 +100,6 @@ public class BusServiceAvailability: MonoBehaviour
         } else {
             this.stops = busData.GetStops();
         }
-        GameObject.Find("UIBusIndicator").GetComponent<BusUIManager>().ActivateBusIndicator();
     }
 
     private void SetStopsFromFile() {
