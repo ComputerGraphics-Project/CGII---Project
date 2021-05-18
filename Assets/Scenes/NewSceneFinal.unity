@@ -343,6 +343,36 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1785031497050465632, guid: b5f488e356dd65642a6e72b24a2a9fb9, type: 3}
   m_PrefabInstance: {fileID: 1871026077}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &496205399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 496205400}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &496205400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496205399}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2265.4502, y: -726.7803, z: -219.32715}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &562863608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -351,6 +381,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7640282692854531372, guid: 0a688e25e67d14842b22b8150a175819, type: 3}
+      propertyPath: Landmark
+      value: 
+      objectReference: {fileID: 496205399}
+    - target: {fileID: 7640282692854531372, guid: 0a688e25e67d14842b22b8150a175819, type: 3}
       propertyPath: LandmarkUI
       value: 
       objectReference: {fileID: 462682445}
@@ -358,6 +392,22 @@ PrefabInstance:
       propertyPath: UIdropdown
       value: 
       objectReference: {fileID: 1157170076}
+    - target: {fileID: 7640282692854531372, guid: 0a688e25e67d14842b22b8150a175819, type: 3}
+      propertyPath: SkyExposure
+      value: 
+      objectReference: {fileID: 496205399}
+    - target: {fileID: 7640282692854531372, guid: 0a688e25e67d14842b22b8150a175819, type: 3}
+      propertyPath: StartWindow
+      value: 
+      objectReference: {fileID: 496205399}
+    - target: {fileID: 7640282692854531372, guid: 0a688e25e67d14842b22b8150a175819, type: 3}
+      propertyPath: BusIndicator
+      value: 
+      objectReference: {fileID: 496205399}
+    - target: {fileID: 7640282692854531372, guid: 0a688e25e67d14842b22b8150a175819, type: 3}
+      propertyPath: ShadowHeatmap
+      value: 
+      objectReference: {fileID: 1597505153}
     - target: {fileID: 7640282692854531372, guid: 0a688e25e67d14842b22b8150a175819, type: 3}
       propertyPath: SkyExposureUI
       value: 
@@ -889,6 +939,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SunHeatmap
       objectReference: {fileID: 0}
+    - target: {fileID: 8494676678570681429, guid: 09c86136672e0584d9ea57595267c279, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8494676678570681434, guid: 09c86136672e0584d9ea57595267c279, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1251,6 +1305,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e52a39cded140c41986a33e65fab01c, type: 3}
+--- !u!1 &1597505153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8494676678570681429, guid: 09c86136672e0584d9ea57595267c279, type: 3}
+  m_PrefabInstance: {fileID: 1215856550}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1671839878 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6293268657004803506, guid: be4f2e49948314a1c8d356ca610ca23c, type: 3}

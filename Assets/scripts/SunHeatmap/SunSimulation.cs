@@ -42,7 +42,7 @@ public class SunSimulation : MonoBehaviour
     void changeSeason()
     {
         string seasonVal = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().season;
-
+        //Debug.Log(seasonVal);
         switch (seasonVal)
         {
             case "Spring":

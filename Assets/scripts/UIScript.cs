@@ -116,6 +116,7 @@ public class UIScript : MonoBehaviour
         if(float.TryParse(startTimeObj.text, out float cleanStart)){startTime = cleanStart;}
         if(float.TryParse(stopTimeObj.text, out float cleanStop)){stopTime = cleanStop;}
         season = seasonObj.options[seasonObj.value].text;
+        //Debug.Log(season);
     }
 
     //CANCEL

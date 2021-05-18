@@ -105,7 +105,14 @@ public class UIManager : MonoBehaviour
             for (int i = 0; i < g.transform.childCount; i++)
             {
                 var child = g.transform.GetChild(i).gameObject;
-                if (child) child.SetActive(b);
+                if (child.name == "Ground" && child.transform.childCount > 0)
+                {
+                    var heatmap = child.GetComponent<Heatmap>();
+                    if (heatmap) Destroy(heatmap);
+                    {
+                        if (child) child.SetActive(b);
+                    }
+                }
             }
             g.gameObject.SetActive(b);
         }
