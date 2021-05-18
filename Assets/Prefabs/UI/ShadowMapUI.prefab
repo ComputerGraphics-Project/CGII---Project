@@ -2362,7 +2362,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2487,9 +2487,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2095511888791464369}
         m_TargetAssemblyTypeName: UIScript, Assembly-CSharp
-        m_MethodName: SimParamOK
+        m_MethodName: onShadowMapOK
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

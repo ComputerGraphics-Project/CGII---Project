@@ -14,6 +14,7 @@ public class SunSimulation : MonoBehaviour
     private float seasonY;
     private string seasonVal;
     private Vector3 temp;
+    private string prevSeason;
     void Start()
     {
         changeSeason();
@@ -34,32 +35,40 @@ public class SunSimulation : MonoBehaviour
     {
         changeSeason();
 
-        var angle = speed * Time.deltaTime*20;
+        speed = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().sunSpeed;
+
+        var angle = speed * Time.deltaTime*40;
 
         transform.RotateAround(origin, axis, angle);
     }
 
     void changeSeason()
     {
-        string seasonVal = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().season;
-        //Debug.Log(seasonVal);
-        switch (seasonVal)
+        seasonVal = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().season;
+        Debug.Log(seasonVal);
+        if (seasonVal != prevSeason)
         {
-            case "Spring":
-                seasonY = -1200;
-                break;
-            case "Summer":
-                seasonY = -100;
-                break;
-            case "Winter":
-                seasonY = -4000;
-                break;
-            case "Autumn":
-                seasonY = -2500;
-                break;
+            switch (seasonVal)
+            {
+                case "Spring":
+                    seasonY = -1200;
+                    break;
+                case "Summer":
+                    seasonY = -100;
+                    break;
+                case "Winter":
+                    seasonY = -4000;
+                    break;
+                case "Autumn":
+                    seasonY = -2500;
+                    break;
 
+            }
+            //temp = transform.position;
+            temp.y = seasonY;
+            transform.position = temp;
+            origin.y = seasonY;
         }
-        temp.y = seasonY;
-        origin.y = seasonY;
+        prevSeason = seasonVal;
     }
 }

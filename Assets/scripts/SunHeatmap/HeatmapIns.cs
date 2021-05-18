@@ -15,8 +15,11 @@ public class HeatmapIns : MonoBehaviour
     void Update()
     {
         //activate with mouse click
+
         if (Input.GetMouseButtonDown(0))
         {
+            HeatmapSteps = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().heatmapSize;
+
             if (gameObject.transform.childCount > 0)
             {
                 Destroy(gameObject.GetComponent<Heatmap>());

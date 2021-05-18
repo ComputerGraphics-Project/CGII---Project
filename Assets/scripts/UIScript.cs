@@ -49,7 +49,7 @@ public class UIScript : MonoBehaviour
 
     //interface variables
     [NonSerialized] public float heatmapSize = 10.0f;
-    [NonSerialized] public float sunSpeed;
+    [NonSerialized] public float sunSpeed = 1;
     [NonSerialized] public float startTime = 6.00f;
     [NonSerialized] public float stopTime = 18.00f;
     [NonSerialized] public string season;
@@ -82,8 +82,7 @@ public class UIScript : MonoBehaviour
         option4 = fileBox.transform.Find("Option4").gameObject.GetComponent<Button>().GetComponentInChildren<TMP_Text>();
 
         fileBox.SetActive(false);
-        fileBoxActive = false; 
-
+        fileBoxActive = false;
 
         //Initialize shadowMapUI
         shadowMapUI = GameObject.Find("ShadowMapUI");
@@ -92,6 +91,7 @@ public class UIScript : MonoBehaviour
         startTimeObj = shadowMapUI.transform.Find("Start").gameObject.GetComponent<TMP_InputField>();
         stopTimeObj = shadowMapUI.transform.Find("Stop").gameObject.GetComponent<TMP_InputField>();
         seasonObj = shadowMapUI.transform.Find("SeasonOptions").gameObject.GetComponent<TMP_Dropdown>();
+
     }
 
     // Update is called once per frame
@@ -116,7 +116,6 @@ public class UIScript : MonoBehaviour
         if(float.TryParse(startTimeObj.text, out float cleanStart)){startTime = cleanStart;}
         if(float.TryParse(stopTimeObj.text, out float cleanStop)){stopTime = cleanStop;}
         season = seasonObj.options[seasonObj.value].text;
-        //Debug.Log(season);
     }
 
     //CANCEL

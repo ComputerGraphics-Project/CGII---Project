@@ -21,10 +21,16 @@ public class DummySun : MonoBehaviour
     public float pZ;
     public string rawData;
     Transform hmObj;
+    public float loadstartX;
+    public float loadstartZ;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
+            startTime = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().startTime;
+            stopTime = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().stopTime;
+
+
             hmObj = GameObject.Find("HeatMap").transform;
             //resetting the heatmap for each click
             if (hmObj.transform.childCount > 0)
@@ -200,9 +206,9 @@ public class DummySun : MonoBehaviour
             string fileData = System.IO.File.ReadAllText(path);
             string[] lines = fileData.Split("\n"[0]);
             int size = int.Parse(lines[0]);
-            float startX = float.Parse(lines[1]);
+            loadstartX = float.Parse(lines[1]);
             //float startY = float.Parse(lines[2]);
-            float startZ = float.Parse(lines[3]);
+            loadstartZ = float.Parse(lines[3]);
             int[,] tempHM = new int[size + 1, size + 1];
 
             for (int i = 0; i <= size; i++)
@@ -223,14 +229,14 @@ public class DummySun : MonoBehaviour
                 {
                     //terrain height
                     RaycastHit hit3;
-                    Vector3 RayOrigin0 = new Vector3(startX + i, 1000, startZ + j);
+                    Vector3 RayOrigin0 = new Vector3(loadstartX + i, 1000, loadstartZ + j);
                     Vector3 RayDir0 = Vector3.down;
                     int layerMask = 1 << 8;
                     if (Physics.Raycast(RayOrigin0, RayDir0, out hit3, Mathf.Infinity, layerMask))
                     {
                         tempPoint = Instantiate(hmPoint);
                         tempPoint.transform.SetParent(hmObj);
-                        tempPoint.transform.position = new Vector3(startX + i, hit3.point.y, startZ + j);
+                        tempPoint.transform.position = new Vector3(loadstartX + i, hit3.point.y, loadstartZ + j);
                         if (Max != 0)
                         {
                             intensity = tempHM[j, i] / Max;
