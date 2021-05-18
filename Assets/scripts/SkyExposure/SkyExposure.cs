@@ -299,29 +299,39 @@ public class SkyExposure : MonoBehaviour
     public void SkyObject()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
+        Transform SkyBars = GameObject.Find("SkyBars").transform;
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo))
         {
             if (Input.GetMouseButtonDown(1))
             {
-                currentPlaceableObject = Instantiate(currentPlaceableObject);
-                currentPlaceableObject.name = "SkyBarClone";
-                currentPlaceableObject.transform.localPosition = hitInfo.point;
-                //currentPlaceableObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
-                currentPlaceableObject.transform.localScale = new Vector3(currentPlaceableObject.transform.localScale.x, Exposure * 0.05f, currentPlaceableObject.transform.localScale.z);
+                GameObject SkyBar;
+                SkyBar = Instantiate(currentPlaceableObject);
+                SkyBar.name = "SkyBar" + "_" + DTtoGameObjectName(DateTime.Now);
+                SkyBar.transform.parent = SkyBars;
+                SkyBar.transform.position = hitInfo.point;
+                BarIndication BarSample = (BarIndication)SkyBar.GetComponent("BarIndication");
+                BarSample.LabelText = hitInfo.point.ToString();
+                BarSample.BarValue = Exposure;
+                //SkyBar.transform.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
+                //SkyBar.transform.localScale = new Vector3(SkyBar.transform.localScale.x, Exposure * 0.05f, SkyBar.transform.localScale.z);
                 //currentPlaceableObject.GetComponentsInChildren<Renderer>().material.color = new Color(1-Exposure / 100f, Exposure / 100f,0 );
                 SkyPercentage.color = new Color(1 - Exposure / 100f, Exposure / 100f, 0);
 
-                foreach (Renderer r in currentPlaceableObject.GetComponentsInChildren<Renderer>())
+                foreach (Renderer r in SkyBar.GetComponentsInChildren<Renderer>())
                 {
-                    r.material.color = new Color(1 - (Exposure * 0.8f)/ 100f, (Exposure * 0.8f) / 100f, 0);
-
+                    if(r.gameObject.name == "Value")
+                        r.material.color = new Color(1 - (Exposure * 0.8f) / 100f, (Exposure * 0.8f) / 100f, 0);
                 }
 
             }
         }
 
     }
-
+    public string DTtoGameObjectName(DateTime dt)
+    {
+        string sp = "-";
+        string mp = "_";
+        return dt.Year.ToString() + sp + dt.Month.ToString().PadLeft(2, '0') + sp + dt.Day.ToString().PadLeft(2, '0') + mp + dt.Hour.ToString().PadLeft(2, '0') + sp + dt.Minute.ToString().PadLeft(2, '0') + sp + dt.Second.ToString().PadLeft(2, '0') + sp + dt.Millisecond.ToString().PadLeft(3, '0');
+    }
 }
