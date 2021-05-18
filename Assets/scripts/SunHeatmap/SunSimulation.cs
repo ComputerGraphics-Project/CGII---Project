@@ -11,29 +11,55 @@ public class SunSimulation : MonoBehaviour
     public float speed = 1;
     public string season;
     public Vector3 axis;
+    private float seasonY;
+    private string seasonVal;
+    private Vector3 temp;
     void Start()
     {
-
-        var temp = transform.position;
-        temp.y = 0;
+        changeSeason();
+        temp = transform.position;
+        temp.y = seasonY;
         temp.x = 0;
         temp.z = 5000;
 
         transform.position = temp;
-
         axis = new Vector3(0f, Mathf.Sin(Mathf.PI / 3), Mathf.Cos(Mathf.PI / 3));
 
-        origin.y = 0;
+        origin.y = seasonY;
 
-        /* temp.y and origin.y:  spring : april : -1200 ,,, summer : july : -100 ,,, fall : october : -2500 ,,, winter : january : -4000 */
+        /*temp.y and origin.y:  spring : april : -1200 ,,, summer : july : -100 ,,, fall : october : -2500 ,,, winter : january : -4000 */
     }
 
     void Update()
     {
-        var angle = speed*0.25f;
+        changeSeason();
+
+        var angle = speed * Time.deltaTime*20;
 
         transform.RotateAround(origin, axis, angle);
     }
 
+    void changeSeason()
+    {
+        string seasonVal = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().season;
 
+        switch (seasonVal)
+        {
+            case "Spring":
+                seasonY = -1200;
+                break;
+            case "Summer":
+                seasonY = -100;
+                break;
+            case "Winter":
+                seasonY = -4000;
+                break;
+            case "Autumn":
+                seasonY = -2500;
+                break;
+
+        }
+        temp.y = seasonY;
+        origin.y = seasonY;
+    }
 }

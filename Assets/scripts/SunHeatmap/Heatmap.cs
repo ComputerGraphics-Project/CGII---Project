@@ -26,7 +26,7 @@ public class Heatmap : MonoBehaviour
         //ShadowHM = new int[steps + 1, steps + 1];
         //ChangeHM = new int[steps + 1, steps + 1];
 
-        InvokeRepeating("ShadowMap", 0, 0.05f);
+        InvokeRepeating("ShadowMap", 0, 0.2f);
     }
 
     void ShadowMap()
