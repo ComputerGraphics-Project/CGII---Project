@@ -97,7 +97,7 @@ public class SkyExposure : MonoBehaviour
             CubeMap.transform.position = Position;
             Exposure = ((v1 + v2 + v3 + v4) / 4);
             Debug.Log("Position " + Position + ",sky_percents=" + Exposure.ToString());
-            SkyPercentage.text = (Exposure.ToString("0.00") + "%");
+            SkyPercentage.text = (Exposure.ToString("0.00") + "%" + " "+ "                         " + Position.ToString());
 
         }
     }
@@ -316,7 +316,7 @@ public class SkyExposure : MonoBehaviour
                 //SkyBar.transform.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
                 //SkyBar.transform.localScale = new Vector3(SkyBar.transform.localScale.x, Exposure * 0.05f, SkyBar.transform.localScale.z);
                 //currentPlaceableObject.GetComponentsInChildren<Renderer>().material.color = new Color(1-Exposure / 100f, Exposure / 100f,0 );
-                SkyPercentage.color = new Color(1 - Exposure / 100f, Exposure / 100f, 0);
+                //SkyPercentage.color = new Color(1 - Exposure / 100f, Exposure / 100f, 0);
 
                 foreach (Renderer r in SkyBar.GetComponentsInChildren<Renderer>())
                 {
@@ -333,5 +333,15 @@ public class SkyExposure : MonoBehaviour
         string sp = "-";
         string mp = "_";
         return dt.Year.ToString() + sp + dt.Month.ToString().PadLeft(2, '0') + sp + dt.Day.ToString().PadLeft(2, '0') + mp + dt.Hour.ToString().PadLeft(2, '0') + sp + dt.Minute.ToString().PadLeft(2, '0') + sp + dt.Second.ToString().PadLeft(2, '0') + sp + dt.Millisecond.ToString().PadLeft(3, '0');
+    }
+
+    public void DestroyChildren()
+    {
+        string parentName = "SkyBars";
+        Transform[] buildingSet = GameObject.Find(parentName).GetComponentsInChildren<Transform>();
+        for (int i = 1; i < buildingSet.Length; i++)
+        {
+            Destroy(GameObject.Find(buildingSet[i].name) as GameObject);
+        }
     }
 }

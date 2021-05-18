@@ -151,6 +151,7 @@ public class DummySun : MonoBehaviour
     void SaveData()
     {
         //save
+        string savestr = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().ToFileName;
         List<string> linesToWrite = new List<string>();
         if (ShadowHM0 != null && ShadowHM0.Length != 0)
         {
@@ -173,7 +174,7 @@ public class DummySun : MonoBehaviour
                 }
                 linesToWrite.Add(line.ToString());
             }
-            System.IO.File.WriteAllLines(Application.persistentDataPath + "/data.json", linesToWrite.ToArray());
+            System.IO.File.WriteAllLines(Application.persistentDataPath + "/" + savestr, linesToWrite.ToArray());
         }
     }
 
@@ -199,8 +200,10 @@ public class DummySun : MonoBehaviour
             }
         }
         //load
-	//check if the path exists?????????
-        string path = Application.persistentDataPath + "/data.json";
+        //check if the path exists?????????
+        string loadstr = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().ToFileName;
+        string path = loadstr;
+        //string path = Application.persistentDataPath + "/data.json";
         if (System.IO.File.Exists(path))
         {
             string fileData = System.IO.File.ReadAllText(path);
