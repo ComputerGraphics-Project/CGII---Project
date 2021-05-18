@@ -4,26 +4,23 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using System.Globalization;
 
 public class UIScript : MonoBehaviour
 {
     ////////////////UI elements/////////////////////
-    
-    //SimParamPanel
-    //UI elements - SimParamPanel
-    
+    public GameObject shadowMapUI; 
+    public GameObject dataPlugIn;
 
     //////Data plugin panel//////////
+    private Button Save;
+    private Button Load;
 
-    public Button Save;
-    public Button Load;
-
-    //menu system 
-    public GameObject fileBox;
-    public TMP_Text option1;
-    public TMP_Text option2;
-    public TMP_Text option3;
-    public TMP_Text option4;
+    private GameObject fileBox;
+    private TMP_Text option1;
+    private TMP_Text option2;
+    private TMP_Text option3;
+    private TMP_Text option4;
 
     //temp variables
     private bool fileBoxActive;
@@ -37,24 +34,64 @@ public class UIScript : MonoBehaviour
     //Simulation parameters panel////
 
     //OK and Cancel buttons
-    public Button SimParamOKButton;
-    public Button SimParamCancelButton;
+    // public Button SimParamOKButton;
+    // public Button SimParamCancelButton;
 
 
     //User Inputs
-    public TMP_InputField TMP_IF;
+    //public TMP_InputField TMP_IF;
+    private TMP_InputField TMP_IF;
+    private Slider sunSpeedSlider;
+    private TMP_InputField MapSizeObj;
+    private TMP_InputField startTimeObj;
+    private TMP_InputField stopTimeObj;
+    private TMP_Dropdown seasonObj;
 
     //interface variables
-    [NonSerialized] public float heatmapSize;
+    [NonSerialized] public float heatmapSize = 10.0f;
+    [NonSerialized] public float sunSpeed;
+    [NonSerialized] public float startTime = 6.00f;
+    [NonSerialized] public float stopTime = 18.00f;
+    [NonSerialized] public string season;
+
+    //temp variables
+    private float heatmapSizePrev;
+    private float sunSpeedPrev;
+    private float startTimePrev;
+    private float stopTimePrev;
+    private string seasonPrev;
+
 
     ////////////////////////////////////
 
     // Start is called before the first frame update
     void Start()
     {
+        //Initialize dataPlugInUI
+
+        //Save Load button set up
+        dataPlugIn = GameObject.Find("DataPluginPanel");
+        Save = dataPlugIn.transform.Find("Save").gameObject.GetComponent<Button>();
+        Load = dataPlugIn.transform.Find("Load").gameObject.GetComponent<Button>();    
+
+        //Filebox set up
+        fileBox = dataPlugIn.transform.Find("FileBox").gameObject;
+        option1 = fileBox.transform.Find("Option1").gameObject.GetComponent<Button>().GetComponentInChildren<TMP_Text>();
+        option2 = fileBox.transform.Find("Option2").gameObject.GetComponent<Button>().GetComponentInChildren<TMP_Text>();
+        option3 = fileBox.transform.Find("Option3").gameObject.GetComponent<Button>().GetComponentInChildren<TMP_Text>();
+        option4 = fileBox.transform.Find("Option4").gameObject.GetComponent<Button>().GetComponentInChildren<TMP_Text>();
+
         fileBox.SetActive(false);
-        fileBoxActive = false;
-        
+        fileBoxActive = false; 
+
+
+        //Initialize shadowMapUI
+        shadowMapUI = GameObject.Find("ShadowMapUI");
+        sunSpeedSlider = shadowMapUI.transform.Find("Slider").gameObject.GetComponent<Slider>();
+        MapSizeObj = shadowMapUI.transform.Find("SizeInput").gameObject.GetComponent<TMP_InputField>();
+        startTimeObj = shadowMapUI.transform.Find("Start").gameObject.GetComponent<TMP_InputField>();
+        stopTimeObj = shadowMapUI.transform.Find("Stop").gameObject.GetComponent<TMP_InputField>();
+        seasonObj = shadowMapUI.transform.Find("SeasonOptions").gameObject.GetComponent<TMP_Dropdown>();
     }
 
     // Update is called once per frame
@@ -63,7 +100,33 @@ public class UIScript : MonoBehaviour
 
     }
 
+    //ShadowMapUI Panel methods
 
+    //OK
+    public void onShadowMapOK()
+    {
+        heatmapSizePrev = heatmapSize;
+        sunSpeedPrev = sunSpeed;
+        startTimePrev = startTime;
+        stopTimePrev = stopTime;
+        seasonPrev = season;
+
+        sunSpeed = sunSpeedSlider.value;
+        if(float.TryParse(MapSizeObj.text, out float cleanSize)){heatmapSize = cleanSize;}
+        if(float.TryParse(startTimeObj.text, out float cleanStart)){startTime = cleanStart;}
+        if(float.TryParse(stopTimeObj.text, out float cleanStop)){stopTime = cleanStop;}
+        season = seasonObj.options[seasonObj.value].text;
+    }
+
+    //CANCEL
+    public void onShadowMapCANCEL()
+    {
+        sunSpeedSlider.value = sunSpeedPrev;
+        MapSizeObj.text = heatmapSizePrev.ToString();
+        startTimeObj.text = startTimePrev.ToString();
+        stopTimeObj.text = stopTimePrev.ToString();
+        seasonObj.options[seasonObj.value].text = seasonPrev;
+    }
 
     //Data plugin
 
@@ -85,26 +148,27 @@ public class UIScript : MonoBehaviour
 
     public void option1OnClick()
     {
+        
         ToFileName = option1.text;
-      
+        Debug.Log(ToFileName);
     }
 
     public void option2OnClick()
     {
         ToFileName = option2.text;
-     
+        Debug.Log(ToFileName);
     }
 
     public void option3OnClick()
     {
         ToFileName = option3.text;
-        
+        Debug.Log(ToFileName);
     }
 
     public void option4OnClick()
     {
         ToFileName = option4.text;
-      
+        Debug.Log(ToFileName);
     }
 
 
