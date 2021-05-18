@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; //UI(BRV)
+//using TMPro; //UI(BRV)
 
 public class HeatmapIns : MonoBehaviour
 {
     public GameObject pointObj;
-    public GameObject UIobj; //Interface with UI (BRV)
+    //public GameObject UIobj; //Interface with UI (BRV)
     public Vector3 objPos;
     public float HeatmapSteps = 10; 
 
@@ -38,7 +38,7 @@ public class HeatmapIns : MonoBehaviour
 
 
         //variable update form UI
-        HeatmapSteps = UIobj.GetComponent<UIScript>().heatmapSize;
+       // HeatmapSteps = UIobj.GetComponent<UIScript>().heatmapSize;
         //Debug.Log(HeatmapSteps);
     }
 }
