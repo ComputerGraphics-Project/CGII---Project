@@ -10,6 +10,7 @@ public class SkyExposure : MonoBehaviour
     public GameObject TexturePlane;
     public GameObject CubeMap;
     public GameObject Cube;
+    public GameObject currentPlaceableObject;
     int count;
     int countRay;
     float Exposure;
@@ -27,6 +28,7 @@ public class SkyExposure : MonoBehaviour
     public Text SkyPercentage;
     public Slider ResolutionSlider;
     public Text SliderValue;
+    //public Text Percentage;
     //public GameObject TextureImge; //UI reference
     //public GameObject CameraImage; //UI reference
     //static float step = 0.1f;//1
@@ -35,7 +37,6 @@ public class SkyExposure : MonoBehaviour
     void Start()
     {
 
-        Debug.Log("Helloooooo");
         ratio = Mathf.RoundToInt(reftime / times);
         TexturePlane.transform.localScale = new Vector3(width, 1, height);
         posArray = new Vector3[width * ratio * height * ratio];//width * stepNum * height * stepNum
@@ -47,44 +48,56 @@ public class SkyExposure : MonoBehaviour
     {
         Vector3 clickPosition = -Vector3.one;
         Ray ray;
-        RaycastHit hit;
+
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Plane plane = new Plane(Vector3.up, 0f);
-        float distanceToplane;
-        if (plane.Raycast(ray, out distanceToplane)) {
-            clickPosition = ray.GetPoint(distanceToplane);
-            var relative_Pos = clickPosition - center + new Vector3(width * reftime / 2f, 0, height * reftime / 2f);
+        //Plane plane = new Plane(Vector3.up, 0f);
+        //float distanceToplane;
+        //if (plane.Raycast(ray, out distanceToplane)) {
+        //    clickPosition = ray.GetPoint(distanceToplane);
+        //    var relative_Pos = clickPosition - center + new Vector3(width * reftime / 2f, 0, height * reftime / 2f);
+        //    int i = Mathf.RoundToInt(relative_Pos.x / times);
+        //    int j = Mathf.RoundToInt(relative_Pos.z / times);
+        //    float v1 = percentArray[i * height * ratio + j];
+        //    float v2 = percentArray[(i + 1) * height * ratio + j];
+        //    float v3 = percentArray[i * height * ratio + j + 1];
+        //    float v4 = percentArray[(i + 1) * height * ratio + j + 1];
+
+        //    //Debug.Log("Position " + Position +
+        //    //    ",i=" + (i).ToString() + 
+        //    //    ",j=" + (j).ToString() +
+        //    //    ",p1=" + posArray[i * height * ratio + j].ToString()  +
+        //    //    ",p4=" + posArray[(i + 1) * height * ratio + j + 1].ToString() +
+        //    //    ",v1(" + (i * height * ratio).ToString() + ")=" + v1.ToString() +
+        //    //    ",v2(" + ((i + 1) * height * ratio + j).ToString() + ")=" + v2.ToString() +
+        //    //    ",v3(" + (i * height * ratio + j + 1).ToString() + ")=" + v3.ToString() +
+        //    //    ",v4(" + ((i + 1) * height * ratio + j + 1).ToString() + ")=" + v4.ToString());
+        //    Cube.transform.position = clickPosition + new Vector3(width * reftime + 10, 0, 0);
+        //    CubeMap.transform.position = clickPosition;
+        //    Exposure = ((v1 + v2 + v3 + v4) / 4);
+        //    Debug.Log("Position " + clickPosition + ",sky_percents=" + Exposure.ToString());
+        //    SkyPercentage.text = (Exposure.ToString("0.00") + "%");
+        //   // Percentage.text = (Exposure.ToString("0.00") + "%");
+
+        //}
+
+        RaycastHit hit;
+        //int layerMask = 1 << 8;
+        if (Physics.Raycast(ray, out hit))
+        {
+
+            var Position = hit.point;
+            var relative_Pos = Position - center + new Vector3(width * reftime / 2f, 0, height * reftime / 2f);
             int i = Mathf.RoundToInt(relative_Pos.x / times);
             int j = Mathf.RoundToInt(relative_Pos.z / times);
             float v1 = percentArray[i * height * ratio + j];
             float v2 = percentArray[(i + 1) * height * ratio + j];
             float v3 = percentArray[i * height * ratio + j + 1];
             float v4 = percentArray[(i + 1) * height * ratio + j + 1];
-
-            //Debug.Log("Position " + Position +
-            //    ",i=" + (i).ToString() + 
-            //    ",j=" + (j).ToString() +
-            //    ",p1=" + posArray[i * height * ratio + j].ToString()  +
-            //    ",p4=" + posArray[(i + 1) * height * ratio + j + 1].ToString() +
-            //    ",v1(" + (i * height * ratio).ToString() + ")=" + v1.ToString() +
-            //    ",v2(" + ((i + 1) * height * ratio + j).ToString() + ")=" + v2.ToString() +
-            //    ",v3(" + (i * height * ratio + j + 1).ToString() + ")=" + v3.ToString() +
-            //    ",v4(" + ((i + 1) * height * ratio + j + 1).ToString() + ")=" + v4.ToString());
-            Cube.transform.position = clickPosition + new Vector3(width * reftime + 10, 0, 0);
-            CubeMap.transform.position = clickPosition;
+            Cube.transform.position = Position + new Vector3(width * reftime + 10, 0, 0);
+            CubeMap.transform.position = Position;
             Exposure = ((v1 + v2 + v3 + v4) / 4);
-            Debug.Log("Position " + clickPosition + ",sky_percents=" + Exposure.ToString());
+            Debug.Log("Position " + Position + ",sky_percents=" + Exposure.ToString());
             SkyPercentage.text = (Exposure.ToString("0.00") + "%");
-
-        }
-
-
-        int layerMask = 1 << 8;
-        if (Physics.Raycast(ray, out hit, layerMask))
-        {
-
-            var Position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-
 
         }
     }
@@ -276,11 +289,39 @@ public class SkyExposure : MonoBehaviour
         mouseLocation();
         //Vector3 test = new Vector3(0, 90, 0);
         //RayCastNew(test);
+        SkyObject();
     }
 
     public void StopCalculation()
     {
         //TexturePlane.GetComponent<Renderer>().material.mainTexture = ;
     }
+    public void SkyObject()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
- }
+        RaycastHit hitInfo;
+        if (Physics.Raycast(ray, out hitInfo))
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                currentPlaceableObject = Instantiate(currentPlaceableObject);
+                currentPlaceableObject.name = "SkyBarClone";
+                currentPlaceableObject.transform.localPosition = hitInfo.point;
+                //currentPlaceableObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
+                currentPlaceableObject.transform.localScale = new Vector3(currentPlaceableObject.transform.localScale.x, Exposure * 0.05f, currentPlaceableObject.transform.localScale.z);
+                //currentPlaceableObject.GetComponentsInChildren<Renderer>().material.color = new Color(1-Exposure / 100f, Exposure / 100f,0 );
+                SkyPercentage.color = new Color(1 - Exposure / 100f, Exposure / 100f, 0);
+
+                foreach (Renderer r in currentPlaceableObject.GetComponentsInChildren<Renderer>())
+                {
+                    r.material.color = new Color(1 - (Exposure * 0.8f)/ 100f, (Exposure * 0.8f) / 100f, 0);
+
+                }
+
+            }
+        }
+
+    }
+
+}
