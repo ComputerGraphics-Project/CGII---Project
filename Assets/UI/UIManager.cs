@@ -31,10 +31,13 @@ public class UIManager : MonoBehaviour
 
     GameObject getUI(int ui)
     {
-        var uiImage = new GameObject();
+        var uiImage = currentUI;
 
         switch (ui)
         {
+            case 0:
+                uiImage = null;
+                break;
             case 1:
                 uiImage = SkyExposureUI;
                 break;
@@ -74,8 +77,12 @@ public class UIManager : MonoBehaviour
     void changeUI(int ui)
     {
         var newUI = getUI(ui);
+        if (!newUI) hideAll();
+        else
+        {
+            toggleActiveUI(currentUI, false);
+            toggleActiveUI(newUI, true);
+        }
 
-        toggleActiveUI(currentUI, false);
-        toggleActiveUI(newUI, true);
     }
 }
