@@ -16,6 +16,7 @@ public class CamControl : MonoBehaviour
     public Vector3 newPosition;
     public Quaternion newRotation;
     public Vector3 newZoom;
+    public Camera myCamera;
 
     private Vector3 dragStartPosition;
     private Vector3 dragCurrentPosition;
@@ -59,7 +60,7 @@ public class CamControl : MonoBehaviour
         {
             Plane plane = new Plane(Vector3.up, Vector3.zero);
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = myCamera.ScreenPointToRay(Input.mousePosition);
 
             float hit;
 
@@ -73,7 +74,7 @@ public class CamControl : MonoBehaviour
         {
             Plane plane = new Plane(Vector3.up, Vector3.zero);
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = myCamera.ScreenPointToRay(Input.mousePosition);
 
             float hit;
 
