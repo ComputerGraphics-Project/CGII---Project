@@ -70,7 +70,7 @@ public class UIScript : MonoBehaviour
         //Initialize dataPlugInUI
 
         //Save Load button set up
-        dataPlugIn = GameObject.Find("DataPluginPanel");
+        //dataPlugIn = GameObject.Find("DataPluginPanel");
         Save = dataPlugIn.transform.Find("Save").gameObject.GetComponent<Button>();
         Load = dataPlugIn.transform.Find("Load").gameObject.GetComponent<Button>();    
 
