@@ -96,7 +96,7 @@ public class SkyExposure : MonoBehaviour
             Cube.transform.position = Position + new Vector3(width * reftime + 10, 0, 0);
             CubeMap.transform.position = Position;
             Exposure = ((v1 + v2 + v3 + v4) / 4);
-            Debug.Log("Position " + Position + ",sky_percents=" + Exposure.ToString());
+            //Debug.Log("Position " + Position + ",sky_percents=" + Exposure.ToString());
             SkyPercentage.text = (Exposure.ToString("0.00") + "%" + " "+ "                         " + Position.ToString());
 
         }
@@ -125,9 +125,9 @@ public class SkyExposure : MonoBehaviour
 
     public void Cal_posiotion()
     {
-        Debug.Log("Start" + DateTime.Now.ToString());
+        //Debug.Log("Start" + DateTime.Now.ToString());
         InitPos();
-        Debug.Log("InitPos" + DateTime.Now.ToString());
+        //Debug.Log("InitPos" + DateTime.Now.ToString());
         for (int i = 0; i < posArray.Length; i++)
         {
             count = 0;
@@ -145,9 +145,9 @@ public class SkyExposure : MonoBehaviour
             //RayCast();
             percentArray[i] = (((float)countRay - (float)count) / (float)countRay) * 100;
         }
-        Debug.Log("percentArray" + DateTime.Now.ToString());
+        //Debug.Log("percentArray" + DateTime.Now.ToString());
         ChangeTexture();
-        Debug.Log("ChangeTexture" + DateTime.Now.ToString());
+        //Debug.Log("ChangeTexture" + DateTime.Now.ToString());
     }
 
     /*private void RayCast()
