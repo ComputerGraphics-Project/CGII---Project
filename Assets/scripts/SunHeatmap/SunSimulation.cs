@@ -11,7 +11,7 @@ public class SunSimulation : MonoBehaviour
     public float speed = 1;
     public string season;
     public Vector3 axis;
-    private float seasonY;
+    public float seasonY;
     private string seasonVal;
     private Vector3 temp;
     private string prevSeason;

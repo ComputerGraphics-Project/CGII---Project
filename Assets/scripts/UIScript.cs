@@ -22,6 +22,8 @@ public class UIScript : MonoBehaviour
     private TMP_Text option3;
     private TMP_Text option4;
 
+    private bool isSave = false;
+    private bool isLoad = false;
     //temp variables
     private bool fileBoxActive;
 
@@ -133,42 +135,82 @@ public class UIScript : MonoBehaviour
     //save
     public void onSave()
     {
+        isLoad = false;
         //show/hide the file box
         fileBox.SetActive(!fileBoxActive);
 
         //toggle state
-        fileBoxActive = !fileBoxActive;    
+        fileBoxActive = !fileBoxActive;
+        isSave = true;
     }
 
     public void onLoad()
     {
-        
+        isSave = false;
+        //show/hide the file box
+        fileBox.SetActive(!fileBoxActive);
+
+        //toggle state
+        fileBoxActive = !fileBoxActive;
+        isLoad = true;
     }
 
 
     public void option1OnClick()
     {
         
-        ToFileName = option1.text;
-        Debug.Log(ToFileName);
+        if (isSave)
+        {
+            ToFileName = option1.text;
+            GameObject.Find("DummySun").GetComponent<DummySun>().SaveData();
+        }
+        if (isLoad)
+        {
+            FromFileName = option1.text;
+            GameObject.Find("DummySun").GetComponent<DummySun>().LoadData();
+        }
     }
 
     public void option2OnClick()
     {
-        ToFileName = option2.text;
-        Debug.Log(ToFileName);
+        if (isSave)
+        {
+            ToFileName = option2.text;
+            GameObject.Find("DummySun").GetComponent<DummySun>().SaveData();
+        }
+        if (isLoad)
+        {
+            FromFileName = option2.text;
+            GameObject.Find("DummySun").GetComponent<DummySun>().LoadData();
+        }
     }
 
     public void option3OnClick()
     {
-        ToFileName = option3.text;
-        Debug.Log(ToFileName);
+        if (isSave)
+        {
+            ToFileName = option3.text;
+            GameObject.Find("DummySun").GetComponent<DummySun>().SaveData();
+        }
+        if (isLoad)
+        {
+            FromFileName = option3.text;
+            GameObject.Find("DummySun").GetComponent<DummySun>().LoadData();
+        }
     }
 
     public void option4OnClick()
     {
-        ToFileName = option4.text;
-        Debug.Log(ToFileName);
+        if (isSave)
+        {
+            ToFileName = option4.text;
+            GameObject.Find("DummySun").GetComponent<DummySun>().SaveData();
+        }
+        if (isLoad)
+        {
+            FromFileName = option4.text;
+            GameObject.Find("DummySun").GetComponent<DummySun>().LoadData();
+        }
     }
 
 

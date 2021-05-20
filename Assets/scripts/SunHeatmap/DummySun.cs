@@ -21,17 +21,19 @@ public class DummySun : MonoBehaviour
     public float pZ;
     public string rawData;
     Transform hmObj;
+    Transform smObj;
     public float loadstartX;
     public float loadstartZ;
     void Update()
     {
+        float seasonY = GameObject.Find("RealSun").GetComponent<SunSimulation>().seasonY;
+        hmObj = GameObject.Find("HeatMap").transform;
+        smObj = GameObject.Find("Ground").transform;
         if (Input.GetMouseButtonDown(1))
         {
             startTime = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().startTime;
             stopTime = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().stopTime;
 
-
-            hmObj = GameObject.Find("HeatMap").transform;
             //resetting the heatmap for each click
             if (hmObj.transform.childCount > 0)
             {
@@ -51,7 +53,7 @@ public class DummySun : MonoBehaviour
             }
 
             var temp = transform.position;
-            temp.y = 0;
+            temp.y = seasonY;
             temp.x = 0;
             temp.z = 5000;
             transform.position = temp;
@@ -60,7 +62,7 @@ public class DummySun : MonoBehaviour
             float angle1 = (360 / 24) * startTime;
             float angle2 = (360 / 24) * stopTime;
             Vector3 rotOrigin = new Vector3(0, 0, 0);
-            rotOrigin.y = -100;
+            rotOrigin.y = seasonY;
             transform.RotateAround(rotOrigin, axis, angle1);
 
 
@@ -148,7 +150,7 @@ public class DummySun : MonoBehaviour
     }
 
 
-    void SaveData()
+    public void SaveData()
     {
         //save
         string savestr = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().ToFileName;
@@ -180,30 +182,29 @@ public class DummySun : MonoBehaviour
 
 
 
-    void LoadData()
+    public void LoadData()
     {
         //clear previous maps
         if (hmObj.transform.childCount > 0)
         {
             foreach (Transform child in hmObj.transform)
             {
-                GameObject.Destroy(child.gameObject);
+                Destroy(child.gameObject);
             }
         }
 
-        GameObject SMobj = GameObject.Find("Ground").gameObject;
-        if (SMobj.transform.childCount > 0)
+        if (smObj.transform.childCount > 0)
         {
-            foreach (Transform child in SMobj.transform)
+            foreach (Transform child in smObj.transform)
             {
-                GameObject.Destroy(child.gameObject);
+                Destroy(smObj.GetComponent<Heatmap>());
+                Destroy(child.gameObject);
             }
         }
         //load
         //check if the path exists?????????
-        string loadstr = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().ToFileName;
-        string path = loadstr;
-        //string path = Application.persistentDataPath + "/data.json";
+        string loadstr = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().FromFileName;
+        string path = Application.persistentDataPath + "/" + loadstr;
         if (System.IO.File.Exists(path))
         {
             string fileData = System.IO.File.ReadAllText(path);
@@ -252,6 +253,18 @@ public class DummySun : MonoBehaviour
                     }
                 }
             }
+            //move the camera to this position
+            if (hmObj.transform.childCount > 0)
+            {
+                Vector3 oldcamPos;
+                Vector3 camPos;
+                oldcamPos = GameObject.Find("CamController").GetComponent<CamControl>().newPosition;
+                camPos.y = oldcamPos.y;
+                camPos.x = loadstartX;
+                camPos.x = camPos.x + (70 * Mathf.Cos(Mathf.Deg2Rad * 45));
+                camPos.z = loadstartZ;
+                GameObject.Find("CamController").GetComponent<CamControl>().newPosition = camPos;
+            }
         }
 
         else
@@ -263,6 +276,15 @@ public class DummySun : MonoBehaviour
 
 
 
+    }
+
+
+
+    public void resetCam()
+    {
+        GameObject.Find("CamController").GetComponent<CamControl>().newPosition = GameObject.Find("CamController").GetComponent<CamControl>().camStart;
+        GameObject.Find("CamController").GetComponent<CamControl>().newZoom = GameObject.Find("CamController").GetComponent<CamControl>().zoomStart;
+        GameObject.Find("CamController").GetComponent<CamControl>().newRotation = GameObject.Find("CamController").GetComponent<CamControl>().rotStart;
     }
 
 

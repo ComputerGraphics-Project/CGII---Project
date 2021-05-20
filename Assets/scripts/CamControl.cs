@@ -23,9 +23,16 @@ public class CamControl : MonoBehaviour
 
     private Vector3 rotateStartPosition;
     private Vector3 rotateCurrentPosition;
+
+    public Vector3 camStart;
+    public Vector3 zoomStart;
+    public Quaternion rotStart;
     // Start is called before the first frame update
     void Start()
     {
+        camStart = transform.position;
+        zoomStart = cameraTransform.localPosition;
+        rotStart = transform.rotation;
         newPosition = transform.position;
         newRotation = transform.rotation;
         newZoom = cameraTransform.localPosition;

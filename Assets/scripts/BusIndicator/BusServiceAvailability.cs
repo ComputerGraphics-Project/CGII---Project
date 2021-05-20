@@ -27,7 +27,7 @@ public class BusServiceAvailability: MonoBehaviour
     void Awake() {
         currentStep = 0;
         busModifier = ScriptableObject.CreateInstance<BusIndicatorModifier>();
-        buildingLayer = GameObject.Find("Map").GetComponent<AbstractMap>().VectorData.GetFeatureSubLayerAtIndex(0);
+        buildingLayer = GameObject.Find("CitySimulatorMap").GetComponent<AbstractMap>().VectorData.GetFeatureSubLayerAtIndex(0);
         busUIManager = GameObject.Find("BusIndicatorUI").GetComponent<BusUIManager>();
     }
 

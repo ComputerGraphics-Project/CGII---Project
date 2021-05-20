@@ -96,8 +96,7 @@ public class LandmarkVisibility : MonoBehaviour
                 {   
                     var selection = hitInfo.transform;
                     selection.GetComponent<Renderer>().material.color = Color.yellow;
-                    Debug.Log(selection.position);
-                    Debug.Log(selection.localPosition);
+                 
 
                     Vector3 selectionPosition = selection.position;
                     selectionPosition.y = selection.GetComponent<MeshFilter>().mesh.bounds.center.y;
@@ -208,7 +207,7 @@ public class LandmarkVisibility : MonoBehaviour
                         float rayRatio = 100*  noOfHittedBuildings/ totalBuildings;
                         rayRatio = Mathf.Round(rayRatio * 100f) / 100f;
                         visibilityScores.Add(rayRatio);
-                        Debug.Log("Landmark Visibility: " + rayRatio);
+                  
 
                         diplayLandmarkScore.text = "Landmark Visibility: " + rayRatio.ToString() + "%";
 
@@ -278,6 +277,10 @@ public class LandmarkVisibility : MonoBehaviour
 
         else
         {
+            if (markerInstance != null)
+            {
+                Destroy(markerInstance);
+            }
             cb.normalColor = Color.white;
             cb.highlightedColor = Color.white;
             cb.pressedColor = Color.white;
