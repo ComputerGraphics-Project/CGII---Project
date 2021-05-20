@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     public GameObject Landmark;
     public GameObject ShadowHeatmapUI;
     public GameObject ShadowHeatmap;
+    public GameObject SaveLoad;
+    public GameObject EmptyPanel;
     public TMPro.TMP_Dropdown UIdropdown;
     private GameObject currentUI;
     private GameObject currentProgram;
@@ -96,6 +98,7 @@ public class UIManager : MonoBehaviour
         SkyExposure.SetActive(false);
         ShadowHeatmap.SetActive(false);
         Landmark.SetActive(false);
+        SaveLoad.SetActive(false);
     }
 
     void toggleActive(GameObject g, bool b)
@@ -132,6 +135,16 @@ public class UIManager : MonoBehaviour
             toggleActive(currentProgram, false);
             toggleActive(newProgram, true);
             currentProgram = newProgram;
+            if (ui == 2 || ui == 4)
+            {
+                if (!SaveLoad.activeSelf) toggleActive(SaveLoad, true);
+                if (EmptyPanel.activeSelf) EmptyPanel.SetActive(false);
+            }
+            else
+            {
+                if (SaveLoad.activeSelf) toggleActive(SaveLoad, false);
+                if (!EmptyPanel.activeSelf) EmptyPanel.SetActive(true);
+            }
         }
         if (ui == 0)
             StartWindow.SetActive(true);
