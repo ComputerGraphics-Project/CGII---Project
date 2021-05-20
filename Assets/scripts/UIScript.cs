@@ -137,10 +137,8 @@ public class UIScript : MonoBehaviour
     {
         isLoad = false;
         //show/hide the file box
-        fileBox.SetActive(!fileBoxActive);
+        fileBox.SetActive(true);
 
-        //toggle state
-        fileBoxActive = !fileBoxActive;
         isSave = true;
     }
 
@@ -148,17 +146,14 @@ public class UIScript : MonoBehaviour
     {
         isSave = false;
         //show/hide the file box
-        fileBox.SetActive(!fileBoxActive);
+        fileBox.SetActive(true);
 
-        //toggle state
-        fileBoxActive = !fileBoxActive;
         isLoad = true;
     }
 
 
     public void option1OnClick()
     {
-        
         if (isSave)
         {
             ToFileName = option1.text;
@@ -169,6 +164,8 @@ public class UIScript : MonoBehaviour
             FromFileName = option1.text;
             GameObject.Find("DummySun").GetComponent<DummySun>().LoadData();
         }
+
+        fileBox.SetActive(false);
     }
 
     public void option2OnClick()
@@ -183,6 +180,8 @@ public class UIScript : MonoBehaviour
             FromFileName = option2.text;
             GameObject.Find("DummySun").GetComponent<DummySun>().LoadData();
         }
+
+        fileBox.SetActive(false);
     }
 
     public void option3OnClick()
@@ -197,6 +196,8 @@ public class UIScript : MonoBehaviour
             FromFileName = option3.text;
             GameObject.Find("DummySun").GetComponent<DummySun>().LoadData();
         }
+
+        fileBox.SetActive(false);
     }
 
     public void option4OnClick()
@@ -211,6 +212,8 @@ public class UIScript : MonoBehaviour
             FromFileName = option4.text;
             GameObject.Find("DummySun").GetComponent<DummySun>().LoadData();
         }
+
+        fileBox.SetActive(false);
     }
 
 

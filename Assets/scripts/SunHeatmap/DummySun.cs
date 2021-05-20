@@ -103,7 +103,7 @@ public class DummySun : MonoBehaviour
                     {
                         intensity = 0;
                     }
-                    tempPoint.GetComponent<Renderer>().material.color = new Color(1-intensity, 0,1-intensity, 1);
+                    tempPoint.GetComponent<Renderer>().material.color = new Color(intensity, 1-intensity, 0, 1);
                 }
             }
 
@@ -155,7 +155,7 @@ public class DummySun : MonoBehaviour
         //save
         string savestr = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().ToFileName;
         List<string> linesToWrite = new List<string>();
-        if (ShadowHM0 != null && ShadowHM0.Length != 0)
+        if (ShadowHM0 != null && ShadowHM0.Length != 0 && hmObj.transform.childCount > 0)
         {
             StringBuilder size = new StringBuilder();
             StringBuilder startX = new StringBuilder();
@@ -249,7 +249,7 @@ public class DummySun : MonoBehaviour
                         {
                             intensity = 0;
                         }
-                        tempPoint.GetComponent<Renderer>().material.color = new Color(1 - intensity, 0, 1 - intensity, 1);
+                        tempPoint.GetComponent<Renderer>().material.color = new Color(intensity, 1 - intensity, 0, 1);
                     }
                 }
             }

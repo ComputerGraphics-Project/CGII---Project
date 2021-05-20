@@ -30,22 +30,22 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
                 ve.GameObject.GetComponent<MeshCollider>().enabled = false;
             }
             // Debug.Log(ve.GameObject.name);
-			var min = ve.MeshFilter.sharedMesh.subMeshCount;
-			var mats = new Material[min];
+			// var min = ve.MeshFilter.sharedMesh.subMeshCount;
+			// var mats = new Material[min];
 
 			// BusServiceAvailability busServiceAvailability = GameObject.Find("BusIndicator").GetComponent<BusServiceAvailability>();
 		// 	Vector2d latLon = GameObject.Find("Map").GetComponent<AbstractMap>().WorldToGeoPosition(ve.Transform.position);
 		// 	float[] indicators = busServiceAvailability.GetIndicator((float) latLon[0], (float) latLon[1]);
 			
-			for (int i = 0; i < min; i++)
-			{				
-				Material mat = new Material(Shader.Find("Specular"));
-				// Material mat = new Material(Shader.Find("Texture Plane_Sky Exposure"));
-				// mat.color = probabilityToColor(indicators[busServiceAvailability.GetCurrentStep()]);
-				mats[i] = mat;
-			}
+			// for (int i = 0; i < min; i++)
+			// {				
+			// 	Material mat = new Material(Shader.Find("Specular"));
+			// 	// Material mat = new Material(Shader.Find("Texture Plane_Sky Exposure"));
+			// 	// mat.color = probabilityToColor(indicators[busServiceAvailability.GetCurrentStep()]);
+			// 	mats[i] = mat;
+			// }
 			
-			ve.MeshRenderer.materials = mats;
+			// ve.MeshRenderer.materials = mats;
 		// }
 		// private Color probabilityToColor(float probability) {
 		// 	if (probability < 0.5f) {

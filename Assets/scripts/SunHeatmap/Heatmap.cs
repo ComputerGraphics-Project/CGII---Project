@@ -75,7 +75,7 @@ public class Heatmap : MonoBehaviour
                         //ShadowData[i, j, epoch] = 0;
                         tempPoint = Instantiate(hmPoint);
                         tempPoint.transform.position = new Vector3(pX + i, hit.point.y, pZ + j);
-                        tempPoint.GetComponent<Renderer>().material.color = Color.blue;
+                        tempPoint.GetComponent<Renderer>().material.color = Color.green;
                         tempPoint.transform.SetParent(gameObject.transform);
                     }
 
