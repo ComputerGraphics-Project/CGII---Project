@@ -93,13 +93,16 @@ public class BusServiceAvailability: MonoBehaviour
     }
 
     public void SetStops() {
-        BusData busData = SaverLoader.Load();
-
-        if (busData == null || busData.GetHourStep() != this.hourStep || busData.GetMaxDistance() != this.maxDistance || busData.GetReliabilityFactor() != this.reliabilityFactor) {
-            SetStopsFromFile();
-        } else {
-            this.stops = busData.GetStops();
-        }
+        SetStopsFromFile();
+    }
+    public void SetStopsFromSavedFile(BusData busData) {
+        this.stops = busData.GetStops();
+        this.hourStep = busData.GetHourStep();
+        this.maxDistance = busData.GetMaxDistance();
+        this.reliabilityFactor = busData.GetReliabilityFactor();
+    }
+    public List<Stop> GetStops() {
+        return this.stops;
     }
 
     private void SetStopsFromFile() {
@@ -130,7 +133,6 @@ public class BusServiceAvailability: MonoBehaviour
         }
 
         SetNumberOfStops();
-        SaverLoader.Save(this.stops, this.hourStep, this.maxDistance, this.reliabilityFactor);
     }
     private void SetNumberOfStops() {
         string text = loadFile("Assets/Resources/BusIndicator/stop_times.txt");
