@@ -41,6 +41,7 @@ public class CamControl : MonoBehaviour
 
     void HandleMouseInput()
     {
+        bool UIhit = GameObject.Find("Canvas").GetComponent<CanvasRaycast>().isUI;
         // Mouse Zoom
         if (Input.mouseScrollDelta.y!=0)
         {
@@ -64,7 +65,7 @@ public class CamControl : MonoBehaviour
 
             float hit;
 
-            if(plane.Raycast(ray, out hit))
+            if(plane.Raycast(ray, out hit) & !UIhit)
             {
                 dragStartPosition = ray.GetPoint(hit);
             }
@@ -78,7 +79,7 @@ public class CamControl : MonoBehaviour
 
             float hit;
 
-            if(plane.Raycast(ray, out hit))
+            if(plane.Raycast(ray, out hit) & !UIhit)
             {
                 dragCurrentPosition = ray.GetPoint(hit);
 

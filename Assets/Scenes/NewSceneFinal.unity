@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -483,6 +483,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3969194305394521593, guid: f77801fba7e0e4fc48bf69e3765750b7, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969194305394521593, guid: f77801fba7e0e4fc48bf69e3765750b7, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f77801fba7e0e4fc48bf69e3765750b7, type: 3}
 --- !u!224 &251845291 stripped
@@ -589,7 +597,7 @@ PrefabInstance:
     - target: {fileID: 7640282692854531372, guid: 0a688e25e67d14842b22b8150a175819, type: 3}
       propertyPath: StartWindow
       value: 
-      objectReference: {fileID: 496205399}
+      objectReference: {fileID: 999643337}
     - target: {fileID: 7640282692854531372, guid: 0a688e25e67d14842b22b8150a175819, type: 3}
       propertyPath: BusIndicator
       value: 
@@ -1083,6 +1091,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &999643337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3886219789446750720, guid: f84d97660b4754a79985f5f03c0b55ef, type: 3}
+  m_PrefabInstance: {fileID: 698117745}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1151950697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2181,6 +2194,7 @@ GameObject:
   - component: {fileID: 1922513221}
   - component: {fileID: 1922513220}
   - component: {fileID: 1922513219}
+  - component: {fileID: 1922513223}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2276,6 +2290,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1922513223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922513218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06f12b3612ec2094dbdab0071b81bb23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUI: 0
 --- !u!1 &1946474373 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8102170948195391444, guid: 0989b8ead043b4331b8d5badf5110fb6, type: 3}

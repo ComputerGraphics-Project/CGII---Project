@@ -25,7 +25,7 @@ public class DummySun : MonoBehaviour
     public float loadstartZ;
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             startTime = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().startTime;
             stopTime = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().stopTime;
