@@ -16,7 +16,7 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
 			var mats = new Material[min];
 
 			BusServiceAvailability busServiceAvailability = GameObject.Find("BusIndicator").GetComponent<BusServiceAvailability>();
-			Vector2d latLon = GameObject.Find("Map").GetComponent<AbstractMap>().WorldToGeoPosition(ve.Transform.position);
+			Vector2d latLon = GameObject.Find("CitySimulatorMap").GetComponent<AbstractMap>().WorldToGeoPosition(ve.Transform.position);
 			float[] indicators = busServiceAvailability.GetPTAL((float) latLon[0], (float) latLon[1]);
 			
 			for (int i = 0; i < min; i++)

@@ -1000,6 +1000,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6293268657004803507}
     m_Modifications:
+    - target: {fileID: 2725060639866178901, guid: 97d7502e060fe44bf837ed0027a3547b, type: 3}
+      propertyPath: m_text
+      value: Heatmap1.json
+      objectReference: {fileID: 0}
     - target: {fileID: 6632496904448565370, guid: 97d7502e060fe44bf837ed0027a3547b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

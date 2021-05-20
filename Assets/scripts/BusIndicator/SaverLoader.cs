@@ -7,18 +7,16 @@ using UnityEngine;
 
 public static class SaverLoader
 {
-    private const string FILENAME = "bus_stops";
-
-    public static void Save(List<Stop> stops, int hourStep, float maxDistance, float reliabilityFactor) {
-        BusData data = new BusData(stops, hourStep, maxDistance, reliabilityFactor);
+    public static void Save(string filename, BusServiceAvailability busServiceAvailability) {
+        BusData data = new BusData(busServiceAvailability.GetStops(), busServiceAvailability.GetHourStep(), busServiceAvailability.maxDistance, busServiceAvailability.reliabilityFactor);
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Path.Combine(Application.persistentDataPath, FILENAME + ".dat"));
+        FileStream file = File.Create(Path.Combine(Application.persistentDataPath, filename + ".dat"));
         bf.Serialize(file, data);
         file.Close();
     }
 
-    public static BusData Load() {
-        string path = Path.Combine(Application.persistentDataPath, FILENAME + ".dat");
+    public static BusData Load(string filename) {
+        string path = Path.Combine(Application.persistentDataPath, filename + ".dat");
 
         if (File.Exists(path)) {
             BinaryFormatter bf = new BinaryFormatter();
