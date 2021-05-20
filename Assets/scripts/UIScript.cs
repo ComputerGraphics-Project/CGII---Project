@@ -25,7 +25,7 @@ public class UIScript : MonoBehaviour
     private bool isSave = false;
     private bool isLoad = false;
     //temp variables
-    private bool fileBoxActive;
+ 
 
     //interface variables
     [NonSerialized] public string ToFileName;  //file name where the data will be saved to
@@ -84,7 +84,7 @@ public class UIScript : MonoBehaviour
         option4 = fileBox.transform.Find("Option4").gameObject.GetComponent<Button>().GetComponentInChildren<TMP_Text>();
 
         fileBox.SetActive(false);
-        fileBoxActive = false;
+        
 
         //Initialize shadowMapUI
         shadowMapUI = GameObject.Find("ShadowMapUI");

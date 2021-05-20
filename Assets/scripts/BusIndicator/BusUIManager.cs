@@ -35,7 +35,7 @@ public class BusUIManager : MonoBehaviour
     private bool isSave = false;
     private bool isLoad = false;
     //temp variables
-    private bool fileBoxActive;
+    
 
     void Awake() {
         busTimeSlider.minValue = 0;
@@ -59,7 +59,7 @@ public class BusUIManager : MonoBehaviour
         option4 = fileBox.transform.Find("Option4").gameObject.GetComponent<Button>().GetComponentInChildren<TMP_Text>();
 
         fileBox.SetActive(false);
-        fileBoxActive = false;
+        
     }
     void OnEnable() {
         dataPlugIn.SetActive(true);
@@ -111,10 +111,10 @@ public class BusUIManager : MonoBehaviour
     {
         isLoad = false;
         //show/hide the file box
-        fileBox.SetActive(!fileBoxActive);
+        fileBox.SetActive(true);
 
         //toggle state
-        fileBoxActive = !fileBoxActive;
+        //fileBoxActive = !fileBoxActive;
         isSave = true;
     }
 
@@ -122,10 +122,10 @@ public class BusUIManager : MonoBehaviour
     {
         isSave = false;
         //show/hide the file box
-        fileBox.SetActive(!fileBoxActive);
+        fileBox.SetActive(true);
 
         //toggle state
-        fileBoxActive = !fileBoxActive;
+        //fileBoxActive = !fileBoxActive;
         isLoad = true;
     }
 
@@ -147,6 +147,9 @@ public class BusUIManager : MonoBehaviour
             reliabilityFactor.text = busServiceAvailability.reliabilityFactor.ToString();
             busServiceAvailability.SetCurrentStep((int) busTimeSlider.value);
         }
+
+        fileBox.SetActive(false);
+
     }
 
     public void option2OnClick()
@@ -165,6 +168,8 @@ public class BusUIManager : MonoBehaviour
             reliabilityFactor.text = busServiceAvailability.reliabilityFactor.ToString();
             busServiceAvailability.SetCurrentStep((int) busTimeSlider.value);
         }
+
+        fileBox.SetActive(false);
     }
 
     public void option3OnClick()
@@ -183,6 +188,8 @@ public class BusUIManager : MonoBehaviour
             reliabilityFactor.text = busServiceAvailability.reliabilityFactor.ToString();
             busServiceAvailability.SetCurrentStep((int) busTimeSlider.value);
         }
+
+        fileBox.SetActive(false);
     }
 
     public void option4OnClick()
@@ -201,5 +208,7 @@ public class BusUIManager : MonoBehaviour
             reliabilityFactor.text = busServiceAvailability.reliabilityFactor.ToString();
             busServiceAvailability.SetCurrentStep((int) busTimeSlider.value);
         }
+
+        fileBox.SetActive(false);
     }
 }

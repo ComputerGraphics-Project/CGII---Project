@@ -135,7 +135,7 @@ public class UIManager : MonoBehaviour
             toggleActive(currentProgram, false);
             toggleActive(newProgram, true);
             currentProgram = newProgram;
-            if (ui == 2 || ui == 4)
+            if (ui == 2)
             {
                 if (!SaveLoad.activeSelf) toggleActive(SaveLoad, true);
                 if (EmptyPanel.activeSelf) EmptyPanel.SetActive(false);

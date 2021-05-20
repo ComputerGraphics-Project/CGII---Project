@@ -33,11 +33,7 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
 			ve.MeshRenderer.materials = mats;
 		}
 		private Color probabilityToColor(float probability) {
-			if (probability < 0.5f) {
-				return new Color(0.0f, probability*2f, 1f - probability*2f, 1f);
-			} else {
-				return new Color((probability-0.5f)*2f, 1f - (probability-0.5f)*2f, 0.0f, 1f);
-			}
+			return new Color(probability, 1f - probability, 0.0f, 1f);
 		}
 	}
 }
