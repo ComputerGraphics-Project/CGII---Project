@@ -10,72 +10,70 @@ public class LandmarkVisibility : MonoBehaviour
     public Button button;
     public Color wantedColor;
     public Text buttonText;
-    public Gradient gradient;
-    
 
     public TextMeshProUGUI diplayLandmarkScore;
+
+    public Slider heightSlider;
+    public TextMeshProUGUI levelValue;
+
+    public Slider circleSlider;
+    public TextMeshProUGUI circleValue;
+
+    public Slider angleSlider;
+    public TextMeshProUGUI angleValue;
+
+    public TextMeshProUGUI totalNofBuildings;
+    public TextMeshProUGUI heightSelected;
+
     private float turnAngle = 0.0175f;
     public static bool computeLandmark = false;
-    public int visibilityHeight;
+    public static float visibilityHeight = 1.0f;
     public int heightLevels = 4;
-    public int circularLevels = 10;
+    
 
-
-    private int newcount1;
-    // private List<Counter> buildingCounters = new List<Counter>();
-
+    private int totalBuildings;
+    private int noOfHittedBuildings;
+    private float temp;
+    private float angleIncrement;
+    private float changeHeight;
 
     private Dictionary<string, int> buildingCounters = new Dictionary<string, int>();
     private float minIntensity;
     private float maxIntensity;
     Color ourColor;
+    public Camera myCamera;
 
     public static List<GameObject> Buildingsno = new List<GameObject>();
     public static GameObject[] objs;
-    public List<GameObject> hittedBuildings = new List<GameObject>();
-    // GameObject buildingss/
+    private List<GameObject> hittedBuildings = new List<GameObject>();
+    private List<float>  visibilityScores = new List<float>();
+
+    public Transform markerPosition;
+    public GameObject marker;
+    private GameObject markerInstance;
 
 
     void Start()
     {
         
-
-        // Debug.Log("Staaaaart");
-
-        
     }
 
     void Update()
     {
+        temp = Mathf.Round(heightSlider.value  * 10f);
+        levelValue.text = temp.ToString() + "%";
+        circleValue.text = circleSlider.value.ToString();
+        angleValue.text = angleSlider.value.ToString();
         if (computeLandmark)
         {
             LandmarkComputation();
         }
     }
 
-    // Start is called before the first frame update
     public void LandmarkComputation()
     {
 
-        objs = GameObject.FindGameObjectsWithTag("Buildings");
-        foreach (GameObject obj in objs)
-        {
-            try
-            {
-                Buildingsno.Add(obj);
-                buildingCounters.Add(obj.name, 0);
-                int value = buildingCounters[obj.name];
-
-                // Debug.Log(value.GetType());
-
-                newcount1 = Buildingsno.Count;
-            } 
-            catch
-            {
-                // nothing
-            } 
-        }
-        // foreach (GameObject building in )
+        InitiateCounter();
         hittedBuildings.Clear();
         float radius;
         float initial_x = 0f;
@@ -84,8 +82,12 @@ public class LandmarkVisibility : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            if (markerInstance!= null)
+            {
+                Destroy(markerInstance);
+            }
             RaycastHit hitInfo;
-            bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
+            bool hit = Physics.Raycast(myCamera.ScreenPointToRay(Input.mousePosition), out hitInfo);
             float counter = 0f;
             float totalRays = 0f;
             if (hit)
@@ -97,197 +99,138 @@ public class LandmarkVisibility : MonoBehaviour
                     Debug.Log(selection.position);
                     Debug.Log(selection.localPosition);
 
-                    // Cant use these here
-                    // Vector3 selectionPosition = selection.position;
-                    // Vector3 selectionScale = selection.localScale;
-
-                    // Use this instead
                     Vector3 selectionPosition = selection.position;
                     selectionPosition.y = selection.GetComponent<MeshFilter>().mesh.bounds.center.y;
                     Vector3 selectionScale = selection.GetComponent<MeshFilter>().mesh.bounds.extents;
-
-
-
-                    // Debug.Log(selectionScale);
-                    
-                    // if (selection.CompareTag("Building"))
-                    // {
-                    //     if (selectionScale.x < selectionScale.z)
-                    //     {
-                    //     radius = selectionScale.x / 2;
-                    //     transform.position = selectionPosition + new Vector3 (0f, selectionScale.y, -selectionScale.z / 2);
-
-                    //     initial_x = transform.position.x + radius;
-                    //     initial_z = transform.position.z;
-                    //     }
-                        
-                    //     else
-                    //     {
-                    //     radius = selectionScale.z / 2;
-                    //     transform.position = selectionPosition + new Vector3 (selectionScale.x /2 , selectionScale.y, 0f);
-
-                    //     initial_x = transform.position.x;
-                    //     initial_z = transform.position.z - radius;
-                    //     }
-                    // }
-
-                    // if (selection.CompareTag("Round Building"))
-                    // {
+                    heightSelected.text = "Height of Landmark: " + Mathf.Round(selectionScale.y*2.73f).ToString() + "m";
 
 
                         if (selectionScale.x < selectionScale.z)
                         {
-                        radius = selectionScale.x / 3;
-                        transform.position = selectionPosition;
+                            radius = selectionScale.x / 3;
+                            transform.position = selectionPosition;
 
-                        initial_x = transform.position.x + radius;
-                        initial_z = transform.position.z;
+                            initial_x = transform.position.x + radius;
+                            initial_z = transform.position.z;
                         }
                         
                         else
                         {
-                        radius = selectionScale.z / 3;
-                        transform.position = selectionPosition;
+                            radius = selectionScale.z / 3;
+                            transform.position = selectionPosition;
 
-                        initial_x = transform.position.x;
-                        initial_z = transform.position.z - radius;
+                            initial_x = transform.position.x;
+                            initial_z = transform.position.z - radius;
                         }
 
-                        // radius = selectionScale.x/2; // needs correction
-                        // transform.position = selectionPosition;
-
-                        // initial_x = transform.position.x - radius;
-                        // initial_z = transform.position.z;
-
-                        // Debug.Log(selection.GetComponent<MeshFilter>().mesh.bounds);
-                        // Debug.Log(selection.GetComponent<MeshRenderer>().bounds);
-
-                    // }
                     float yError = -0.523330f;
 
-                    selectionPosition.y = selectionPosition.y + yError ;
-                    // selectionPosition.y = selectionPosition.y + selectionScale.y;
-                    // selectionPosition.y = selectionPosition.y + selectionScale.y;
-
                     transform.position = selectionPosition;
-                    
 
-                    // initial_x = transform.position.x;
-                    // initial_z = transform.position.z;
-                    
                     selection.GetComponent<MeshCollider>().enabled = false;
                     
                     
-                    float changeHeight = (float) 2*selectionScale.y/heightLevels;
+                    changeHeight = (float) 2*selectionScale.y/heightLevels;
 
-                    float circleDivisions = (float) 360/circularLevels;
+                    float circleDivisions = (float) 360/circleSlider.value;
 
-
+                    float integerY = (float) selectionPosition.y + selectionScale.y;
+                    visibilityHeight = heightSlider.value/10;
                     
 
-                    // float integerY = (float) selectionScale.y;
-                    float integerY = (float) selectionPosition.y + selectionScale.y;
-                    for (float i = integerY; i >= selectionPosition.y-selectionScale.y; i-=changeHeight)
+                    float topLevel = visibilityHeight * integerY;
+                    float bottomLevel =  (float) selectionPosition.y - selectionScale.y;
+                    transform.Translate(new Vector3(0, -selectionScale.y, 0));
+
+                    angleIncrement = angleSlider.value;
+
+                    for (float i = bottomLevel; i <= topLevel-yError/2; i+=changeHeight)
                     {
                         for (float m = 0; m <360; m+=circleDivisions)
                         {
-                        for (float n = 0; n <360; n+=circleDivisions)
-                        {
-                            transform.RotateAround(new Vector3(initial_x, i, initial_z), Vector3.up , circleDivisions);
-                        for (int k = 0; k < 360; k+=10)
-                        {
-                            // transform.RotateAround(new Vector3(initial_x, i, initial_z), Vector3.up , 1);
-                            // Debug.Log(transform.position);
-
-                            for (int j = 0; j < 360; j+=10)
+                            for (float n = 0; n <360; n+=circleDivisions)
                             {
-                                RaycastHit intersect;
-                                Vector3 rayDirection = new Vector3(Mathf.Cos(k * turnAngle), Mathf.Sin(k * turnAngle) * Mathf.Cos(j * turnAngle), Mathf.Sin(k * turnAngle) * Mathf.Sin(j * turnAngle));
-                                Ray viewRay = new Ray(transform.position, rayDirection);
-
-                                totalRays++;
-                                // This Debug works: (Do not Delete)
-                                Debug.DrawRay(transform.position, rayDirection * 0.2f , Color.red, 60);
-
-                                if (Physics.Raycast(viewRay, out intersect))
+                                transform.RotateAround(new Vector3(initial_x, i, initial_z), Vector3.up , circleDivisions);
+                                for (float k = 0; k < 360; k+=angleIncrement)
                                 {
-                                    
-                                    var newSelection = intersect.transform;
-                        
-                                    if (newSelection.CompareTag("Buildings"))
-                                    // if (newSelection.CompareTag("testBuilding"))
+
+                                    for (float j = 0; j < 360; j+=angleIncrement)
                                     {
+                                        RaycastHit intersect;
+                                        Vector3 rayDirection = new Vector3(Mathf.Cos(k * turnAngle), Mathf.Sin(k * turnAngle) * Mathf.Cos(j * turnAngle), Mathf.Sin(k * turnAngle) * Mathf.Sin(j * turnAngle));
+                                        Ray viewRay = new Ray(transform.position, rayDirection);
 
-                                        GameObject buildingss = intersect.collider.gameObject;
-                                        hittedBuildings.Add(buildingss);
-                                        // testCounter.counter = testCounter.counter + 1;
-                                        // Debug.Log(testCounter.counter);
+                                        totalRays++;
+                                        // This Debug works: (Do not Delete)
+                                        // Debug.DrawRay(transform.position, rayDirection * 1f , Color.red, 20);
 
-                                        if (buildingCounters.ContainsKey(newSelection.gameObject.name))
+                                        if (Physics.Raycast(viewRay, out intersect))
                                         {
-                                            buildingCounters[newSelection.gameObject.name] = buildingCounters[newSelection.gameObject.name] + 1;
-                                            // Debug.Log(newSelection.gameObject.name + "  " +  buildingCounters[newSelection.gameObject.name]);
-                                            if (buildingCounters[newSelection.gameObject.name] > maxIntensity)
-                                            {
-                                                maxIntensity = buildingCounters[newSelection.gameObject.name];
-                                            }
-                                            if (buildingCounters[newSelection.gameObject.name] < minIntensity)
-                                            {
-                                                minIntensity =  buildingCounters[newSelection.gameObject.name];
-                                            }
-
-                                        }
-
-                                        // catch (KeyNotFoundException)
-                                        else
-                                        {
-
-                                            // Debug.Log("Not in Building" + newSelection.gameObject.name);
                                             
+                                            var newSelection = intersect.transform;
+                                
+                                            if (newSelection.CompareTag("Buildings"))
+                                            {
+                                                GameObject buildingss = intersect.collider.gameObject;
+                                                if (!hittedBuildings.Contains(buildingss))
+                                                {
+                                                    hittedBuildings.Add(buildingss);
+                                                    noOfHittedBuildings = hittedBuildings.Count;
+                                                }
+
+                                                if (buildingCounters.ContainsKey(newSelection.gameObject.name))
+                                                {
+                                                    buildingCounters[newSelection.gameObject.name] = buildingCounters[newSelection.gameObject.name] + 1;
+                                                    if (buildingCounters[newSelection.gameObject.name] > maxIntensity)
+                                                    {
+                                                        maxIntensity = buildingCounters[newSelection.gameObject.name];
+                                                    }
+                                                    if (buildingCounters[newSelection.gameObject.name] < minIntensity)
+                                                    {
+                                                        minIntensity =  buildingCounters[newSelection.gameObject.name];
+                                                    }
+
+                                                }
+                                                counter++;
+                                            }
+
+                                            else
+                                            {
+                                                continue;
+                                            }
                                         }
-
-
-
-                                        // var newSelectionRenderer = newSelection.GetComponent<Renderer>();
-                                        // newSelectionRenderer.material.color = Color.green;
-
-                                        counter++;
                                     }
+                            
                                 }
-
                             }
-                        
-                        }
-                        }
                         }
 
-                        transform.Translate(new Vector3(0, -changeHeight, 0));
+                        float rayRatio = 100*  noOfHittedBuildings/ totalBuildings;
+                        rayRatio = Mathf.Round(rayRatio * 100f) / 100f;
+                        visibilityScores.Add(rayRatio);
+                        Debug.Log("Landmark Visibility: " + rayRatio);
+
+                        diplayLandmarkScore.text = "Landmark Visibility: " + rayRatio.ToString() + "%";
+
+                        transform.Translate(new Vector3(0, changeHeight, 0));
                     }
                     
                     selection.GetComponent<MeshCollider>().enabled = true;
                 }
+                
+                transform.Translate(new Vector3(0, -changeHeight, 0));
 
-                // Calculation of Ratio
-                float rayRatio = 100*counter / totalRays;
-                rayRatio = Mathf.Round(rayRatio * 100f) / 100f;
-                Debug.Log(rayRatio);
-                Debug.Log(totalRays);
+                markerInstance = Instantiate(marker, markerPosition.position, marker.transform.rotation);
 
-                diplayLandmarkScore.text = "Landmark Visibility: " + rayRatio.ToString();
+                
             }
         }
 
-        
         foreach (GameObject obj in hittedBuildings)
         {
-            // float colorIntensity = Mathf.InverseLerp(minIntensity, maxIntensity, buildingCounters[obj.transform.gameObject.name]);
             float counterValue = buildingCounters[obj.transform.gameObject.name];
             float maxColorIntensity = counterValue/Mathf.Sqrt(maxIntensity*maxIntensity+minIntensity*minIntensity);
-            // float minColorIntensity = buildingCounters[obj.transform.gameObject.name]/maxIntensity;
-            // Color ourColor = new Color(maxColorIntensity, 0, 1-maxColorIntensity);
-            Color ourColor = new Color(1-maxColorIntensity, maxColorIntensity, 0);
-            // Debug.Log(colorIntensity);
-            // ourColor = gradient.Evaluate(colorIntensity);
+            Color ourColor = new Color(maxColorIntensity, 1 - maxColorIntensity, 0);
 
             obj.gameObject.GetComponent<Renderer>().material.color = ourColor;
         }
@@ -295,14 +238,32 @@ public class LandmarkVisibility : MonoBehaviour
 
     public void StartLandmark()
     {
-        // computeLandmark = true;
         computeLandmark = !computeLandmark;
+    }
 
+    public void InitiateCounter()
+    {
+        objs = GameObject.FindGameObjectsWithTag("Buildings");
+        foreach (GameObject obj in objs)
+        {
+            try
+            {
+                Buildingsno.Add(obj);
+                buildingCounters.Add(obj.name, 0);
+                totalBuildings = Buildingsno.Count;
+            } 
+            catch
+            {
+                // nothing
+            } 
+        }
+        totalNofBuildings.text = "Total Buildings: " + totalBuildings.ToString();
     }
 
     public void ChangeButtonColor()
     {
         ColorBlock cbOriginal = button.colors;
+        
         ColorBlock cb = cbOriginal;
 
         if (computeLandmark)
@@ -312,7 +273,7 @@ public class LandmarkVisibility : MonoBehaviour
             cb.pressedColor = wantedColor;
             button.colors = cb;
             buttonText.text = "Stop Computing"; 
-            buttonText.color = Color.white;          
+            buttonText.color = Color.red;          
         }
 
         else
