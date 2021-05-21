@@ -106,7 +106,7 @@ public class BusServiceAvailability: MonoBehaviour
     }
 
     private void SetStopsFromFile() {
-        string text = loadFile("Assets/Resources/BusIndicator/stops.txt");
+        string text = loadFile("BusIndicator/stops");
         string[] lines = Regex.Split(text, "\n");
 
         int nbStops = lines.Length - 2;
@@ -135,7 +135,7 @@ public class BusServiceAvailability: MonoBehaviour
         SetNumberOfStops();
     }
     private void SetNumberOfStops() {
-        string text = loadFile("Assets/Resources/BusIndicator/stop_times.txt");
+        string text = loadFile("BusIndicator/stop_times");
         string[] lines = Regex.Split(text, "\n");
 
         int nbStopsTimes = lines.Length - 2;
@@ -160,7 +160,7 @@ public class BusServiceAvailability: MonoBehaviour
     }
 
     private string loadFile(string filename) {
-        TextAsset file = (TextAsset) AssetDatabase.LoadAssetAtPath(filename, typeof(TextAsset));
+        TextAsset file = Resources.Load<TextAsset>(filename);
         if (file == null) {
             throw new Exception(filename + " not found");
         }

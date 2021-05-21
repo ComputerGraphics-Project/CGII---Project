@@ -75,7 +75,7 @@ public class FUN_Template: MonoBehaviour
     }
 
     private string loadFile(string filename) {
-        TextAsset file = (TextAsset) AssetDatabase.LoadAssetAtPath(filename, typeof(TextAsset));
+        TextAsset file = Resources.Load<TextAsset>(filename);
         if (file == null) {
             throw new Exception(filename + " not found");
         }
