@@ -285,7 +285,22 @@ public class DummySun : MonoBehaviour
         GameObject.Find("CamController").GetComponent<CamControl>().newPosition = GameObject.Find("CamController").GetComponent<CamControl>().camStart;
         GameObject.Find("CamController").GetComponent<CamControl>().newZoom = GameObject.Find("CamController").GetComponent<CamControl>().zoomStart;
         GameObject.Find("CamController").GetComponent<CamControl>().newRotation = GameObject.Find("CamController").GetComponent<CamControl>().rotStart;
+        //clear previous maps
+        if (hmObj.transform.childCount > 0)
+        {
+            foreach (Transform child in hmObj.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        if (smObj.transform.childCount > 0)
+        {
+            foreach (Transform child in smObj.transform)
+            {
+                Destroy(smObj.GetComponent<Heatmap>());
+                Destroy(child.gameObject);
+            }
+        }
     }
-
-
 }
