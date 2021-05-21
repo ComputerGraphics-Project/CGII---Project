@@ -29,8 +29,11 @@ public class DummySun : MonoBehaviour
         float seasonY = GameObject.Find("RealSun").GetComponent<SunSimulation>().seasonY;
         hmObj = GameObject.Find("HeatMap").transform;
         smObj = GameObject.Find("Ground").transform;
+        //GameObject Terrain = GameObject.Find("Ground").gameObject;
+        //steps = (int)Terrain.GetComponent<HeatmapIns>().HeatmapSteps; //square 
         if (Input.GetMouseButtonDown(1))
         {
+            steps = (int)GameObject.Find("ShadowMapUI").GetComponent<UIScript>().heatmapSize;
             startTime = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().startTime;
             stopTime = GameObject.Find("ShadowMapUI").GetComponent<UIScript>().stopTime;
 
@@ -40,6 +43,15 @@ public class DummySun : MonoBehaviour
                 foreach (Transform child in hmObj.transform)
                 {
                     GameObject.Destroy(child.gameObject);
+                }
+            }
+
+            if (smObj.transform.childCount > 0)
+            {
+                foreach (Transform child in smObj.transform)
+                {
+                    Destroy(smObj.GetComponent<Heatmap>());
+                    Destroy(child.gameObject);
                 }
             }
 
@@ -66,9 +78,7 @@ public class DummySun : MonoBehaviour
             transform.RotateAround(rotOrigin, axis, angle1);
 
 
-            GameObject Terrain = GameObject.Find("Ground").gameObject;
-            steps = (int)Terrain.GetComponent<HeatmapIns>().HeatmapSteps; //square 
-            //Debug.Log("steps:",steps);
+
             ShadowData0 = new int[steps + 1, steps + 1, 180]; //xsteps,zsteps,timesteps (180, change later)
             ShadowHM0 = new int[steps + 1, steps + 1];
             ChangeHM0 = new int[steps + 1, steps + 1];

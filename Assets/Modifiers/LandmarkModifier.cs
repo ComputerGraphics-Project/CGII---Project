@@ -18,17 +18,17 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
 		{
 
             ve.GameObject.tag = "Buildings";
-            List<string> deletebuildings = new List<string>();
-            deletebuildings.Add("Buildings - 395134807");
-            deletebuildings.Add("Buildings - 395134809");
-            deletebuildings.Add("Buildings - 395134806");
-            deletebuildings.Add("Buildings - 395134805");
+            // List<string> deletebuildings = new List<string>();
+            // deletebuildings.Add("Buildings - 395134807");
+            // deletebuildings.Add("Buildings - 395134809");
+            // deletebuildings.Add("Buildings - 395134806");
+            // deletebuildings.Add("Buildings - 395134805");
 
-            if (deletebuildings.Contains(ve.GameObject.name))
-            {
+            // if (deletebuildings.Contains(ve.GameObject.name))
+            // {
                 // ve.GameObject.Destroy();
-                ve.GameObject.GetComponent<MeshCollider>().enabled = false;
-            }
+            //    ve.GameObject.GetComponent<MeshCollider>().enabled = false;
+            // }
             // Debug.Log(ve.GameObject.name);
 			// var min = ve.MeshFilter.sharedMesh.subMeshCount;
 			// var mats = new Material[min];

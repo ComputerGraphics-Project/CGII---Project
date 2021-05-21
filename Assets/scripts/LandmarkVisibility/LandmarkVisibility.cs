@@ -37,7 +37,8 @@ public class LandmarkVisibility : MonoBehaviour
     private float angleIncrement;
     private float changeHeight;
 
-    private Dictionary<string, int> buildingCounters = new Dictionary<string, int>();
+    // private Dictionary<string, int> buildingCounters = new Dictionary<string, int>();
+    private Dictionary<Vector3, int> buildingCounters = new Dictionary<Vector3, int>();
     private float minIntensity;
     private float maxIntensity;
     Color ourColor;
@@ -95,7 +96,7 @@ public class LandmarkVisibility : MonoBehaviour
                 if ((hitInfo.transform.gameObject.tag == "Buildings"))
                 {   
                     var selection = hitInfo.transform;
-                    selection.GetComponent<Renderer>().material.color = Color.yellow;
+                    selection.GetComponent<Renderer>().material.color = Color.blue;
                  
 
                     Vector3 selectionPosition = selection.position;
@@ -177,16 +178,16 @@ public class LandmarkVisibility : MonoBehaviour
                                                     noOfHittedBuildings = hittedBuildings.Count;
                                                 }
 
-                                                if (buildingCounters.ContainsKey(newSelection.gameObject.name))
+                                                if (buildingCounters.ContainsKey(newSelection.localPosition))
                                                 {
-                                                    buildingCounters[newSelection.gameObject.name] = buildingCounters[newSelection.gameObject.name] + 1;
-                                                    if (buildingCounters[newSelection.gameObject.name] > maxIntensity)
+                                                    buildingCounters[newSelection.localPosition] = buildingCounters[newSelection.localPosition] + 1;
+                                                    if (buildingCounters[newSelection.localPosition] > maxIntensity)
                                                     {
-                                                        maxIntensity = buildingCounters[newSelection.gameObject.name];
+                                                        maxIntensity = buildingCounters[newSelection.localPosition];
                                                     }
-                                                    if (buildingCounters[newSelection.gameObject.name] < minIntensity)
+                                                    if (buildingCounters[newSelection.localPosition] < minIntensity)
                                                     {
-                                                        minIntensity =  buildingCounters[newSelection.gameObject.name];
+                                                        minIntensity =  buildingCounters[newSelection.localPosition];
                                                     }
 
                                                 }
@@ -227,7 +228,7 @@ public class LandmarkVisibility : MonoBehaviour
 
         foreach (GameObject obj in hittedBuildings)
         {
-            float counterValue = buildingCounters[obj.transform.gameObject.name];
+            float counterValue = buildingCounters[obj.transform.localPosition];
             float maxColorIntensity = counterValue/Mathf.Sqrt(maxIntensity*maxIntensity+minIntensity*minIntensity);
             Color ourColor = new Color(maxColorIntensity, 1 - maxColorIntensity, 0);
 
@@ -248,7 +249,7 @@ public class LandmarkVisibility : MonoBehaviour
             try
             {
                 Buildingsno.Add(obj);
-                buildingCounters.Add(obj.name, 0);
+                buildingCounters.Add(obj.transform.localPosition, 0);
                 totalBuildings = Buildingsno.Count;
             } 
             catch
