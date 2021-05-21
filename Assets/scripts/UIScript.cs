@@ -216,5 +216,4 @@ public class UIScript : MonoBehaviour
         fileBox.SetActive(false);
     }
 
-
 }

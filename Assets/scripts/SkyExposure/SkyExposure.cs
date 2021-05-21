@@ -109,7 +109,7 @@ public class SkyExposure : MonoBehaviour
 
         //GameObject ma = GameObject.Find("16/33887/18096");
         //center = ma.transform.localPosition;//.GetComponent<MeshFilter>().mesh.bounds.center; // width = height = 30
-        center = new Vector3(-1007.333f, 0f, 17.89116f);
+        center = new Vector3(-7.3f, 0.0f, 17.9f);
 
         TexturePlane.transform.localPosition = center + new Vector3(width * reftime + 10, 0, 0);// - new Vector3(times, 0, times);
 
