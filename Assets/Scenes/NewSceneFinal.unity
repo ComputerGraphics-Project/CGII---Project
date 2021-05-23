@@ -1687,6 +1687,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8494676677707787430, guid: 09c86136672e0584d9ea57595267c279, type: 3}
+      propertyPath: m_Range
+      value: 200000
+      objectReference: {fileID: 0}
     - target: {fileID: 8494676678570681429, guid: 09c86136672e0584d9ea57595267c279, type: 3}
       propertyPath: m_Name
       value: SunHeatmap
